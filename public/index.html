@@ -7,29 +7,24 @@
 <script src="/socket.io/socket.io.js"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
- 
   body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(to bottom, #1a1008, #3d2b1f) fixed;
-    color: #eee;
+    font-family: Georgia, 'Times New Roman', serif;
+    background: linear-gradient(to bottom, #0a0e2a, #1b3a5c) fixed;
+    color: #c0c0c0;
     min-height: 100vh;
   }
- 
   header {
-    background: linear-gradient(135deg, #1a1008 0%, #2a1a0e 100%);
-    border-bottom: 3px solid #d4a843;
+    background: linear-gradient(135deg, #0a0e2a 0%, #12204a 100%);
+    border-bottom: 3px solid #c0c0c0;
     padding: 1.2rem;
     text-align: center;
   }
- 
   header h1 {
     font-size: 2rem;
-    color: #d4a843;
+    color: #d4d4d4;
     letter-spacing: 2px;
   }
- 
-  header h1 span { font-size: 1.2rem; color: #aaa; }
- 
+  header h1 span { font-size: 1.2rem; color: #a0a0a0; }
   nav {
     display: flex;
     justify-content: center;
@@ -37,11 +32,10 @@
     margin-top: 0.8rem;
     flex-wrap: wrap;
   }
- 
   nav button {
     background: transparent;
-    color: #d4a843;
-    border: 1px solid #d4a843;
+    color: #c0c0c0;
+    border: 1px solid #c0c0c0;
     padding: 0.5rem 1.2rem;
     font-size: 0.95rem;
     cursor: pointer;
@@ -49,76 +43,66 @@
     font-family: inherit;
     transition: all 0.2s;
   }
- 
   nav button:hover, nav button.active {
-    background: #d4a843;
-    color: #1a1008;
+    background: #c0c0c0;
+    color: #0a0e2a;
   }
- 
   .page { display: none; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
   .page.visible { display: block; }
- 
   .join-box {
     text-align: center;
     margin-top: 3rem;
   }
- 
   .join-box input {
     font-size: 1.2rem;
     padding: 0.8rem 1rem;
     border-radius: 6px;
-    border: 2px solid #d4a843;
-    background: #1a1008;
-    color: #eee;
+    border: 2px solid #c0c0c0;
+    background: #0a0e2a;
+    color: #c0c0c0;
     width: 100%;
     max-width: 320px;
     font-family: inherit;
   }
- 
   .join-box button {
     display: block;
     margin: 1rem auto 0;
     font-size: 1.1rem;
     padding: 0.8rem 2.5rem;
-    background: #d4a843;
-    color: #1a1008;
+    background: #c0c0c0;
+    color: #0a0e2a;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
     font-family: inherit;
   }
- 
   .category-card {
-    background: rgba(22, 14, 6, 0.8);
-    border: 1px solid #3a2a1a;
+    background: rgba(10, 14, 42, 0.8);
+    border: 1px solid #2a3a6a;
     border-radius: 8px;
     padding: 1.2rem;
     margin-bottom: 1rem;
   }
- 
   .category-card h3 {
-    color: #d4a843;
+    color: #d4d4d4;
     margin-bottom: 0.6rem;
     font-size: 1.05rem;
   }
- 
   .category-card .points-badge {
     font-size: 0.8rem;
-    color: #aaa;
+    color: #a0a0a0;
     font-weight: normal;
   }
- 
   .nominees {
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
   }
- 
   .nominee-btn {
-    background: #1a1008;
-    border: 1px solid #3a2a1a;
-    color: #ddd;
+    background: #0a0e2a;
+    border: 1px solid #2a3a6a;
+    color: #c0c0c0;
     padding: 0.55rem 0.8rem;
     border-radius: 5px;
     cursor: pointer;
@@ -127,37 +111,32 @@
     transition: all 0.15s;
     font-family: inherit;
   }
- 
-  .nominee-btn:hover { border-color: #d4a843; color: #fff; }
+  .nominee-btn:hover { border-color: #c0c0c0; color: #e0e0e0; }
   .nominee-btn.selected {
-    background: #d4a843;
-    color: #1a1008;
-    border-color: #d4a843;
+    background: #c0c0c0;
+    color: #0a0e2a;
+    border-color: #c0c0c0;
     font-weight: bold;
   }
- 
   .nominee-btn.correct {
     background: #2ecc71;
     color: #fff;
     border-color: #2ecc71;
   }
- 
   .nominee-btn.wrong {
     opacity: 0.4;
   }
- 
   .nominee-btn.is-winner {
     border-color: #2ecc71;
     box-shadow: 0 0 0 2px #2ecc71;
   }
- 
   #submitPicks {
     display: block;
     width: 100%;
     padding: 1rem;
     font-size: 1.2rem;
-    background: #d4a843;
-    color: #1a1008;
+    background: #c0c0c0;
+    color: #0a0e2a;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -165,26 +144,21 @@
     margin: 1.5rem 0;
     font-family: inherit;
   }
- 
   #submitPicks:disabled {
     opacity: 0.4;
     cursor: not-allowed;
   }
- 
   .pick-status {
     text-align: center;
-    color: #aaa;
+    color: #a0a0a0;
     margin-bottom: 1rem;
   }
- 
   .leaderboard-stats {
     text-align: center;
-    color: #aaa;
+    color: #a0a0a0;
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
   }
- 
-  /* PODIUM */
   .podium-container {
     display: flex;
     justify-content: center;
@@ -194,7 +168,6 @@
     padding: 1rem 0;
     min-height: 220px;
   }
- 
   .podium-spot {
     display: flex;
     flex-direction: column;
@@ -202,22 +175,19 @@
     width: 30%;
     max-width: 160px;
   }
- 
   .podium-name {
     font-size: 0.95rem;
     font-weight: bold;
-    color: #eee;
+    color: #d4d4d4;
     margin-bottom: 0.3rem;
     text-align: center;
     word-break: break-word;
   }
- 
   .podium-score {
     font-size: 1.3rem;
     font-weight: bold;
     margin-bottom: 0.4rem;
   }
- 
   .podium-bar {
     width: 100%;
     border-radius: 6px 6px 0 0;
@@ -228,79 +198,60 @@
     transition: height 0.8s ease;
     position: relative;
   }
- 
   .podium-bar .podium-rank {
     font-size: 1.5rem;
     font-weight: bold;
   }
- 
-  .podium-first .podium-score { color: #d4a843; }
+  .podium-first .podium-score { color: #e0e0e0; }
   .podium-first .podium-bar {
-    background: linear-gradient(to top, #8a6d1b, #d4a843);
+    background: linear-gradient(to top, #606060, #d4d4d4);
     min-height: 120px;
   }
-  .podium-first .podium-rank { color: #1a1008; }
- 
-  .podium-second .podium-score { color: #c0c0c0; }
+  .podium-first .podium-rank { color: #0a0e2a; }
+  .podium-second .podium-score { color: #b0b0b0; }
   .podium-second .podium-bar {
-    background: linear-gradient(to top, #606060, #c0c0c0);
+    background: linear-gradient(to top, #505050, #a0a0a0);
     min-height: 85px;
   }
-  .podium-second .podium-rank { color: #1a1008; }
- 
-  .podium-third .podium-score { color: #cd7f32; }
+  .podium-second .podium-rank { color: #0a0e2a; }
+  .podium-third .podium-score { color: #909090; }
   .podium-third .podium-bar {
-    background: linear-gradient(to top, #6b3e1f, #cd7f32);
+    background: linear-gradient(to top, #404040, #808080);
     min-height: 60px;
   }
-  .podium-third .podium-rank { color: #1a1008; }
- 
+  .podium-third .podium-rank { color: #0a0e2a; }
   .podium-empty .podium-bar {
-    background: #2a1a0e;
-    border: 1px dashed #3a2a1a;
+    background: #12204a;
+    border: 1px dashed #2a3a6a;
     min-height: 40px;
   }
- 
-  .podium-empty .podium-name {
-    color: #555;
-  }
- 
-  .podium-empty .podium-score {
-    color: #555;
-  }
- 
-  /* SCORE BARS */
-  .score-bars {
-    margin-bottom: 2rem;
-  }
- 
+  .podium-empty .podium-name { color: #555; }
+  .podium-empty .podium-score { color: #555; }
+  .score-bars { margin-bottom: 2rem; }
   .score-bar-row {
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
   }
- 
   .score-bar-name {
     width: 100px;
     font-size: 0.85rem;
-    color: #ccc;
+    color: #a0a0a0;
     text-align: right;
     padding-right: 0.8rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
- 
   .score-bar-track {
     flex: 1;
     height: 28px;
-    background: #1a1008;
+    background: #0a0e2a;
     border-radius: 14px;
     overflow: hidden;
     position: relative;
-    border: 1px solid #3a2a1a;
+    border: 1px solid #2a3a6a;
   }
- 
   .score-bar-fill {
     height: 100%;
     border-radius: 14px;
@@ -310,42 +261,29 @@
     padding-left: 0.6rem;
     font-size: 0.8rem;
     font-weight: bold;
-    color: #1a1008;
+    color: #0a0e2a;
     min-width: 0;
   }
- 
-  .score-bar-fill-first {
-    background: linear-gradient(to right, #8a6d1b, #d4a843);
-  }
- 
-  .score-bar-fill-second {
-    background: linear-gradient(to right, #707070, #c0c0c0);
-  }
- 
-  .score-bar-fill-third {
-    background: linear-gradient(to right, #6b3e1f, #cd7f32);
-  }
- 
+  .score-bar-fill-first { background: linear-gradient(to right, #808080, #d4d4d4); }
+  .score-bar-fill-second { background: linear-gradient(to right, #606060, #a0a0a0); }
+  .score-bar-fill-third { background: linear-gradient(to right, #404040, #808080); }
   .score-bar-fill-rest {
-    background: linear-gradient(to right, #3a2a1a, #5a4530);
-    color: #ddd;
+    background: linear-gradient(to right, #2a3a6a, #3a4a7a);
+    color: #c0c0c0;
   }
- 
   .score-bar-value {
     position: absolute;
     right: 8px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.8rem;
-    color: #aaa;
+    color: #a0a0a0;
   }
- 
-  /* LEADERBOARD LIST */
   .leader-row {
     display: flex;
     align-items: center;
-    background: rgba(22, 14, 6, 0.8);
-    border: 1px solid #3a2a1a;
+    background: rgba(10, 14, 42, 0.8);
+    border: 1px solid #2a3a6a;
     border-radius: 8px;
     padding: 1rem 1.2rem;
     margin-bottom: 0.6rem;
@@ -353,22 +291,1167 @@
     cursor: pointer;
     flex-wrap: wrap;
   }
- 
   .leader-row.expanded {
     margin-bottom: 0;
     border-radius: 8px 8px 0 0;
   }
- 
-  .leader-row.first { border-color: #d4a843; background: linear-gradient(135deg, rgba(22,14,6,0.8), rgba(42,26,8,0.9)); }
-  .leader-row.second { border-color: #aaa; }
-  .leader-row.third { border-color: #cd7f32; }
- 
+  .leader-row.first {
+    border-color: #d4d4d4;
+    background: linear-gradient(135deg, rgba(10,14,42,0.8), rgba(18,32,74,0.9));
+  }
+  .leader-row.second { border-color: #a0a0a0; }
+  .leader-row.third { border-color: #808080; }
   .leader-rank {
     font-size: 1.5rem;
     font-weight: bold;
     width: 2.5rem;
     text-align: center;
-    color: #d4a843;
+    color: #d4d4d4;
+  }
+  .leader-name {
+    flex: 1;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #c0c0c0;
+  }
+  .leader-score {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #d4d4d4;
   }
  
+  /* ADMIN PAGE */
+  .admin-password-box {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .admin-password-box input {
+    font-size: 1.2rem;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    border: 2px solid #c0c0c0;
+    background: #0a0e2a;
+    color: #c0c0c0;
+    width: 100%;
+    max-width: 320px;
+    font-family: inherit;
+  }
+  .admin-password-box button {
+    display: block;
+    margin: 1rem auto 0;
+    font-size: 1.1rem;
+    padding: 0.8rem 2.5rem;
+    background: #c0c0c0;
+    color: #0a0e2a;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: inherit;
+  }
+  .admin-content { display: none; }
+  .admin-content.unlocked { display: block; }
+  .admin-category {
+    background: rgba(10, 14, 42, 0.8);
+    border: 1px solid #2a3a6a;
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .admin-category h3 {
+    color: #d4d4d4;
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+  }
+  .admin-category .winner-set {
+    color: #2ecc71;
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+  }
+  .winner-btn {
+    background: #0a0e2a;
+    border: 1px solid #2a3a6a;
+    color: #c0c0c0;
+    padding: 0.55rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 0.95rem;
+    transition: all 0.15s;
+    font-family: inherit;
+    display: block;
+    width: 100%;
+    margin-bottom: 0.35rem;
+  }
+  .winner-btn:hover { border-color: #2ecc71; color: #e0e0e0; }
+  .winner-btn.chosen-winner {
+    background: #2ecc71;
+    color: #fff;
+    border-color: #2ecc71;
+    font-weight: bold;
+  }
+  .admin-status {
+    text-align: center;
+    color: #a0a0a0;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  #recalcScores {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 1.5rem 0;
+    font-family: inherit;
+  }
+  #recalcScores:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+</style>
+</head>
+<body>
+ 
+<header>
+  <h1>Oscar Pool <span>2026</span></h1>
+  <nav>
+    <button class="active" onclick="showPage('joinPage', this)">Join</button>
+    <button onclick="showPage('picksPage', this)">My Picks</button>
+    <button onclick="showPage('leaderboardPage', this)">Leaderboard</button>
+    <button onclick="showPage('adminPage', this)">Admin</button>
+  </nav>
+</header>
+ 
+<!-- JOIN PAGE -->
+<div id="joinPage" class="page visible">
+  <div class="join-box">
+    <h2 style="color:#d4d4d4; margin-bottom:1rem;">Enter Your Name</h2>
+    <input type="text" id="playerName" placeholder="Your name">
+    <button onclick="joinPool()">Join Pool</button>
+  </div>
+</div>
+ 
+<!-- PICKS PAGE -->
+<div id="picksPage" class="page">
+  <p class="pick-status" id="pickStatus">Pick your winners below</p>
+  <div id="categoriesContainer"></div>
+  <button id="submitPicks" disabled onclick="submitPicks()">Submit Picks</button>
+</div>
+ 
+<!-- LEADERBOARD PAGE -->
+<div id="leaderboardPage" class="page">
+  <p class="leaderboard-stats" id="leaderboardStats"></p>
+  <div class="podium-container" id="podium"></div>
+  <div class="score-bars" id="scoreBars"></div>
+  <div id="leaderboardList"></div>
+</div>
+ 
+<!-- ADMIN PAGE -->
+<div id="adminPage" class="page">
+  <div class="admin-password-box" id="adminLogin">
+    <h2 style="color:#d4d4d4; margin-bottom:1rem;">Admin Access</h2>
+    <input type="password" id="adminPassword" placeholder="Enter admin password">
+    <button onclick="adminUnlock()">Unlock</button>
+  </div>
+  <div class="admin-content" id="adminContent">
+    <p class="admin-status" id="adminStatus">Select the actual winner in each category</p>
+    <div id="adminCategoriesContainer"></div>
+    <button id="recalcScores" onclick="recalculateScores()">Update Winners &amp; Recalculate Scores</button>
+  </div>
+</div>
+ 
+<script>
+  const socket = typeof io !== 'undefined' ? io() : null;
+  let currentPlayer = null;
+  let picks = {};
+  let winners = {};
+  const ADMIN_PASSWORD = 'oscar2026';
+ 
+  const categories = [
+    { id: 'picture', name: 'Best Picture', points: 10, nominees: ['The Brutalist', 'Conclave', 'Anora', 'Emilia Pérez', 'Wicked', 'Dune: Part Two'] },
+    { id: 'director', name: 'Best Director', points: 8, nominees: ['Brady Corbet', 'Edward Berger', 'Sean Baker', 'Jacques Audiard', 'Denis Villeneuve'] },
+    { id: 'actor', name: 'Best Actor', points: 5, nominees: ['Adrien Brody', 'Timothée Chalamet', 'Ralph Fiennes', 'Colman Domingo', 'Sebastian Stan'] },
+    { id: 'actress', name: 'Best Actress', points: 5, nominees: ['Mikey Madison', 'Demi Moore', 'Cynthia Erivo', 'Karla Sofía Gascón', 'Fernanda Torres'] },
+    { id: 'supporting_actor', name: 'Best Supporting Actor', points: 3, nominees: ['Guy Pearce', 'Yura Borisov', 'Kieran Culkin', 'Edward Norton', 'Jeremy Strong'] },
+    { id: 'supporting_actress', name: 'Best Supporting Actress', points: 3, nominees: ['Felicity Jones', 'Isabella Rossellini', 'Ariana Grande', 'Zoe Saldaña', 'Monica Barbaro'] },
+  ];
+ 
+  // Load winners from localStorage
+  const savedWinners = localStorage.getItem('oscarPoolWinners');
+  if (savedWinners) winners = JSON.parse(savedWinners);
+ 
+  function showPage(pageId, btn) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('visible'));
+    document.getElementById(pageId).classList.add('visible');
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+  }
+ 
+  function joinPool() {
+    const name = document.getElementById('playerName').value.trim();
+    if (!name) return;
+    currentPlayer = name;
+    renderCategories();
+    showPage('picksPage');
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('nav button')[1].classList.add('active');
+    if (socket) socket.emit('join', { name });
+  }
+ 
+  function renderCategories() {
+    const container = document.getElementById('categoriesContainer');
+    container.innerHTML = '';
+    categories.forEach(cat => {
+      const card = document.createElement('div');
+      card.className = 'category-card';
+      card.innerHTML = `<h3>${cat.name} <span class="points-badge">(${cat.points} pts)</span></h3>
+        <div class="nominees" id="nominees-${cat.id}">
+          ${cat.nominees.map(n => {
+            let classes = 'nominee-btn';
+            if (winners[cat.id]) {
+              if (n === winners[cat.id]) classes += ' is-winner';
+              if (picks[cat.id] === n && n === winners[cat.id]) classes += ' correct';
+              if (picks[cat.id] === n && n !== winners[cat.id]) classes += ' wrong';
+            }
+            return `<button class="${classes}" onclick="pickNominee('${cat.id}', this, '${n.replace(/'/g, "\\'")}')">${n}</button>`;
+          }).join('')}
+        </div>`;
+      container.appendChild(card);
+    });
+  }
+ 
+  function pickNominee(catId, btn, name) {
+    if (winners[catId]) return; // lock picks once winner is set
+    const container = document.getElementById('nominees-' + catId);
+    container.querySelectorAll('.nominee-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    picks[catId] = name;
+    updateSubmitButton();
+  }
+ 
+  function updateSubmitButton() {
+    const total = categories.length;
+    const picked = Object.keys(picks).length;
+    document.getElementById('pickStatus').textContent = `${picked} of ${total} categories picked`;
+    document.getElementById('submitPicks').disabled = picked < total;
+  }
+ 
+  function submitPicks() {
+    if (socket) {
+      socket.emit('submitPicks', { player: currentPlayer, picks });
+    }
+    localStorage.setItem('oscarPoolPicks_' + currentPlayer, JSON.stringify(picks));
+    alert('Picks submitted!');
+  }
+ 
+  // ADMIN
+  function adminUnlock() {
+    const pw = document.getElementById('adminPassword').value;
+    if (pw === ADMIN_PASSWORD) {
+      document.getElementById('adminLogin').style.display = 'none';
+      document.getElementById('adminContent').classList.add('unlocked');
+      renderAdminCategories();
+    } else {
+      alert('Incorrect password');
+    }
+  }
+ 
+  function renderAdminCategories() {
+    const container = document.getElementById('adminCategoriesContainer');
+    container.innerHTML = '';
+    categories.forEach(cat => {
+      const div = document.createElement('div');
+      div.className = 'admin-category';
+      const winnerLabel = winners[cat.id] ? `<span class="winner-set">✓ ${winners[cat.id]}</span>` : '';
+      div.innerHTML = `<h3>${cat.name} <span class="points-badge">(${cat.points} pts)</span>${winnerLabel}</h3>
+        <div id="admin-nominees-${cat.id}">
+          ${cat.nominees.map(n => {
+            const isWinner = winners[cat.id] === n ? ' chosen-winner' : '';
+            return `<button class="winner-btn${isWinner}" onclick="setWinner('${cat.id}', this, '${n.replace(/'/g, "\\'")}')">${n}</button>`;
+          }).join('')}
+        </div>`;
+      container.appendChild(div);
+    });
+    updateAdminStatus();
+  }
+ 
+  function setWinner(catId, btn, name) {
+    const container = document.getElementById('admin-nominees-' + catId);
+    container.querySelectorAll('.winner-btn').forEach(b => b.classList.remove('chosen-winner'));
+    btn.classList.add('chosen-winner');
+    winners[catId] = name;
+    localStorage.setItem('oscarPoolWinners', JSON.stringify(winners));
+    renderAdminCategories();
+  }
+ 
+  function updateAdminStatus() {
+    const set = Object.keys(winners).length;
+    const total = categories.length;
+    document.getElementById('adminStatus').textContent = `${set} of ${total} winners set`;
+  }
+ 
+  function recalculateScores() {
+    localStorage.setItem('oscarPoolWinners', JSON.stringify(winners));
+ 
+    if (socket) {
+      socket.emit('setWinners', winners);
+    }
+ 
+    // Update the picks page to show correct/wrong
+    if (currentPlayer) renderCategories();
+ 
+    // Recalculate local leaderboard from all saved picks
+    const allPlayers = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key.startsWith('oscarPoolPicks_')) {
+        const playerName = key.replace('oscarPoolPicks_', '');
+        const playerPicks = JSON.parse(localStorage.getItem(key));
+        let score = 0;
+        categories.forEach(cat => {
+          if (winners[cat.id] && playerPicks[cat.id] === winners[cat.id]) {
+            score += cat.points;
+          }
+        });
+        allPlayers.push({ name: playerName, score });
+      }
+    }
+ 
+    allPlayers.sort((a, b) => b.score - a.score);
+    renderLeaderboard(allPlayers);
+    renderPodium(allPlayers);
+    renderScoreBars(allPlayers);
+ 
+    alert('Winners updated and scores recalculated!');
+  }
+ 
+  // LEADERBOARD
+  if (socket) {
+    socket.on('leaderboardUpdate', (data) => {
+      renderLeaderboard(data);
+      renderPodium(data);
+      renderScoreBars(data);
+    });
+  }
+ 
+  function renderLeaderboard(players) {
+    const list = document.getElementById('leaderboardList');
+    list.innerHTML = '';
+    document.getElementById('leaderboardStats').textContent = `${players.length} player${players.length !== 1 ? 's' : ''} · ${Object.keys(winners).length} of ${categories.length} winners announced`;
+    players.forEach((p, i) => {
+      const row = document.createElement('div');
+      let rankClass = '';
+      if (i === 0) rankClass = 'first';
+      else if (i === 1) rankClass = 'second';
+      else if (i === 2) rankClass = 'third';
+      row.className = `leader-row ${rankClass}`;
+      row.innerHTML = `
+        <div class="leader-rank">${i + 1}</div>
+        <div class="leader-name">${p.name}</div>
+        <div class="leader-score">${p.score} pts</div>`;
+      list.appendChild(row);
+    });
+  }
+ 
+  function renderPodium(players) {
+    const podium = document.getElementById('podium');
+    const spots = [
+      { index: 1, cls: 'podium-second' },
+      { index: 0, cls: 'podium-first' },
+      { index: 2, cls: 'podium-third' }
+    ];
+    podium.innerHTML = spots.map(s => {
+      const p = players[s.index];
+      if (!p) return `<div class="podium-spot podium-empty">
+        <div class="podium-name">—</div>
+        <div class="podium-score">0</div>
+        <div class="podium-bar"><span class="podium-rank">${s.index + 1}</span></div>
+      </div>`;
+      return `<div class="podium-spot ${s.cls}">
+        <div class="podium-name">${p.name}</div>
+        <div class="podium-score">${p.score}</div>
+        <div class="podium-bar"><span class="podium-rank">${s.index + 1}</span></div>
+      </div>`;
+    }).join('');
+  }
+ 
+  function renderScoreBars(players) {
+    const container = document.getElementById('scoreBars');
+    const maxScore = Math.max(...players.map(p => p.score), 1);
+    container.innerHTML = players.map((p, i) => {
+      let fillClass = 'score-bar-fill-rest';
+      if (i === 0) fillClass = 'score-bar-fill-first';
+      else if (i === 1) fillClass = 'score-bar-fill-second';
+      else if (i === 2) fillClass = 'score-bar-fill-third';
+      const pct = Math.max((p.score / maxScore) * 100, 2);
+      return `<div class="score-bar-row">
+        <div class="score-bar-name">${p.name}</div>
+        <div class="score-bar-track">
+          <div class="score-bar-fill ${fillClass}" style="width:${pct}%">${p.score}</div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+ 
+  // Load leaderboard on page load from localStorage
+  (function loadLocalLeaderboard() {
+    const allPlayers = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key.startsWith('oscarPoolPicks_')) {
+        const playerName = key.replace('oscarPoolPicks_', '');
+        const playerPicks = JSON.parse(localStorage.getItem(key));
+        let score = 0;
+        categories.forEach(cat => {
+          if (winners[cat.id] && playerPicks[cat.id] === winners[cat.id]) {
+            score += cat.points;
+          }
+        });
+        allPlayers.push({ name: playerName, score });
+      }
+    }
+    if (allPlayers.length > 0) {
+      allPlayers.sort((a, b) => b.score - a.score);
+      renderLeaderboard(allPlayers);
+      renderPodium(allPlayers);
+      renderScoreBars(allPlayers);
+    }
+  })();
+</script>
+ 
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oscar Pool 2026</title>
+<script src="/socket.io/socket.io.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: linear-gradient(to bottom, #0a0e2a, #1b3a5c) fixed;
+    color: #c0c0c0;
+    min-height: 100vh;
+  }
+  header {
+    background: linear-gradient(135deg, #0a0e2a 0%, #12204a 100%);
+    border-bottom: 3px solid #c0c0c0;
+    padding: 1.2rem;
+    text-align: center;
+  }
+  header h1 {
+    font-size: 2rem;
+    color: #d4d4d4;
+    letter-spacing: 2px;
+  }
+  header h1 span { font-size: 1.2rem; color: #a0a0a0; }
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    flex-wrap: wrap;
+  }
+  nav button {
+    background: transparent;
+    color: #c0c0c0;
+    border: 1px solid #c0c0c0;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  nav button:hover, nav button.active {
+    background: #c0c0c0;
+    color: #0a0e2a;
+  }
+  .page { display: none; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+  .page.visible { display: block; }
+  .join-box {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .join-box input {
+    font-size: 1.2rem;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    border: 2px solid #c0c0c0;
+    background: #0a0e2a;
+    color: #c0c0c0;
+    width: 100%;
+    max-width: 320px;
+    font-family: inherit;
+  }
+  .join-box button {
+    display: block;
+    margin: 1rem auto 0;
+    font-size: 1.1rem;
+    padding: 0.8rem 2.5rem;
+    background: #c0c0c0;
+    color: #0a0e2a;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: inherit;
+  }
+  .category-card {
+    background: rgba(10, 14, 42, 0.8);
+    border: 1px solid #2a3a6a;
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .category-card h3 {
+    color: #d4d4d4;
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+  }
+  .category-card .points-badge {
+    font-size: 0.8rem;
+    color: #a0a0a0;
+    font-weight: normal;
+  }
+  .nominees {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .nominee-btn {
+    background: #0a0e2a;
+    border: 1px solid #2a3a6a;
+    color: #c0c0c0;
+    padding: 0.55rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 0.95rem;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .nominee-btn:hover { border-color: #c0c0c0; color: #e0e0e0; }
+  .nominee-btn.selected {
+    background: #c0c0c0;
+    color: #0a0e2a;
+    border-color: #c0c0c0;
+    font-weight: bold;
+  }
+  .nominee-btn.correct {
+    background: #2ecc71;
+    color: #fff;
+    border-color: #2ecc71;
+  }
+  .nominee-btn.wrong {
+    opacity: 0.4;
+  }
+  .nominee-btn.is-winner {
+    border-color: #2ecc71;
+    box-shadow: 0 0 0 2px #2ecc71;
+  }
+  #submitPicks {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background: #c0c0c0;
+    color: #0a0e2a;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 1.5rem 0;
+    font-family: inherit;
+  }
+  #submitPicks:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .pick-status {
+    text-align: center;
+    color: #a0a0a0;
+    margin-bottom: 1rem;
+  }
+  .leaderboard-stats {
+    text-align: center;
+    color: #a0a0a0;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+  .podium-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    min-height: 220px;
+  }
+  .podium-spot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    max-width: 160px;
+  }
+  .podium-name {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #d4d4d4;
+    margin-bottom: 0.3rem;
+    text-align: center;
+    word-break: break-word;
+  }
+  .podium-score {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+  }
+  .podium-bar {
+    width: 100%;
+    border-radius: 6px 6px 0 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 0.5rem;
+    transition: height 0.8s ease;
+    position: relative;
+  }
+  .podium-bar .podium-rank {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .podium-first .podium-score { color: #e0e0e0; }
+  .podium-first .podium-bar {
+    background: linear-gradient(to top, #606060, #d4d4d4);
+    min-height: 120px;
+  }
+  .podium-first .podium-rank { color: #0a0e2a; }
+  .podium-second .podium-score { color: #b0b0b0; }
+  .podium-second .podium-bar {
+    background: linear-gradient(to top, #505050, #a0a0a0);
+    min-height: 85px;
+  }
+  .podium-second .podium-rank { color: #0a0e2a; }
+  .podium-third .podium-score { color: #909090; }
+  .podium-third .podium-bar {
+    background: linear-gradient(to top, #404040, #808080);
+    min-height: 60px;
+  }
+  .podium-third .podium-rank { color: #0a0e2a; }
+  .podium-empty .podium-bar {
+    background: #12204a;
+    border: 1px dashed #2a3a6a;
+    min-height: 40px;
+  }
+  .podium-empty .podium-name { color: #555; }
+  .podium-empty .podium-score { color: #555; }
+  .score-bars { margin-bottom: 2rem; }
+  .score-bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  .score-bar-name {
+    width: 100px;
+    font-size: 0.85rem;
+    color: #a0a0a0;
+    text-align: right;
+    padding-right: 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .score-bar-track {
+    flex: 1;
+    height: 28px;
+    background: #0a0e2a;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #2a3a6a;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 14px;
+    transition: width 0.8s ease;
+    display: flex;
+    align-items: center;
+    padding-left: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #0a0e2a;
+    min-width: 0;
+  }
+  .score-bar-fill-first { background: linear-gradient(to right, #808080, #d4d4d4); }
+  .score-bar-fill-second { background: linear-gradient(to right, #606060, #a0a0a0); }
+  .score-bar-fill-third { background: linear-gradient(to right, #404040, #808080); }
+  .score-bar-fill-rest {
+    background: linear-gradient(to right, #2a3a6a, #3a4a7a);
+    color: #c0c0c0;
+  }
+  .score-bar-value {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: #a0a0a0;
+  }
+  .leader-row {
+    display: flex;
+    align-items: center;
+    background: rgba(10, 14, 42, 0.8);
+    border: 1px solid #2a3a6a;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.6rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    flex-wrap: wrap;
+  }
+  .leader-row.expanded {
+    margin-bottom: 0;
+    border-radius: 8px 8px 0 0;
+  }
+  .leader-row.first {
+    border-color: #d4d4d4;
+    background: linear-gradient(135deg, rgba(10,14,42,0.8), rgba(18,32,74,0.9));
+  }
+  .leader-row.second { border-color: #a0a0a0; }
+  .leader-row.third { border-color: #808080; }
+  .leader-rank {
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 2.5rem;
+    text-align: center;
+    color: #d4d4d4;
+  }
   .leader-name {
+    flex: 1;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #c0c0c0;
+  }
+  .leader-score {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #d4d4d4;
+  }
+ 
+  /* ADMIN PAGE */
+  .admin-password-box {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .admin-password-box input {
+    font-size: 1.2rem;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    border: 2px solid #c0c0c0;
+    background: #0a0e2a;
+    color: #c0c0c0;
+    width: 100%;
+    max-width: 320px;
+    font-family: inherit;
+  }
+  .admin-password-box button {
+    display: block;
+    margin: 1rem auto 0;
+    font-size: 1.1rem;
+    padding: 0.8rem 2.5rem;
+    background: #c0c0c0;
+    color: #0a0e2a;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: inherit;
+  }
+  .admin-content { display: none; }
+  .admin-content.unlocked { display: block; }
+  .admin-category {
+    background: rgba(10, 14, 42, 0.8);
+    border: 1px solid #2a3a6a;
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .admin-category h3 {
+    color: #d4d4d4;
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+  }
+  .admin-category .winner-set {
+    color: #2ecc71;
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+  }
+  .winner-btn {
+    background: #0a0e2a;
+    border: 1px solid #2a3a6a;
+    color: #c0c0c0;
+    padding: 0.55rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 0.95rem;
+    transition: all 0.15s;
+    font-family: inherit;
+    display: block;
+    width: 100%;
+    margin-bottom: 0.35rem;
+  }
+  .winner-btn:hover { border-color: #2ecc71; color: #e0e0e0; }
+  .winner-btn.chosen-winner {
+    background: #2ecc71;
+    color: #fff;
+    border-color: #2ecc71;
+    font-weight: bold;
+  }
+  .admin-status {
+    text-align: center;
+    color: #a0a0a0;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  #recalcScores {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 1.5rem 0;
+    font-family: inherit;
+  }
+  #recalcScores:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+</style>
+</head>
+<body>
+ 
+<header>
+  <h1>Oscar Pool <span>2026</span></h1>
+  <nav>
+    <button class="active" onclick="showPage('joinPage', this)">Join</button>
+    <button onclick="showPage('picksPage', this)">My Picks</button>
+    <button onclick="showPage('leaderboardPage', this)">Leaderboard</button>
+    <button onclick="showPage('adminPage', this)">Admin</button>
+  </nav>
+</header>
+ 
+<!-- JOIN PAGE -->
+<div id="joinPage" class="page visible">
+  <div class="join-box">
+    <h2 style="color:#d4d4d4; margin-bottom:1rem;">Enter Your Name</h2>
+    <input type="text" id="playerName" placeholder="Your name">
+    <button onclick="joinPool()">Join Pool</button>
+  </div>
+</div>
+ 
+<!-- PICKS PAGE -->
+<div id="picksPage" class="page">
+  <p class="pick-status" id="pickStatus">Pick your winners below</p>
+  <div id="categoriesContainer"></div>
+  <button id="submitPicks" disabled onclick="submitPicks()">Submit Picks</button>
+</div>
+ 
+<!-- LEADERBOARD PAGE -->
+<div id="leaderboardPage" class="page">
+  <p class="leaderboard-stats" id="leaderboardStats"></p>
+  <div class="podium-container" id="podium"></div>
+  <div class="score-bars" id="scoreBars"></div>
+  <div id="leaderboardList"></div>
+</div>
+ 
+<!-- ADMIN PAGE -->
+<div id="adminPage" class="page">
+  <div class="admin-password-box" id="adminLogin">
+    <h2 style="color:#d4d4d4; margin-bottom:1rem;">Admin Access</h2>
+    <input type="password" id="adminPassword" placeholder="Enter admin password">
+    <button onclick="adminUnlock()">Unlock</button>
+  </div>
+  <div class="admin-content" id="adminContent">
+    <p class="admin-status" id="adminStatus">Select the actual winner in each category</p>
+    <div id="adminCategoriesContainer"></div>
+    <button id="recalcScores" onclick="recalculateScores()">Update Winners &amp; Recalculate Scores</button>
+  </div>
+</div>
+ 
+<script>
+  const socket = typeof io !== 'undefined' ? io() : null;
+  let currentPlayer = null;
+  let picks = {};
+  let winners = {};
+  const ADMIN_PASSWORD = 'oscar2026';
+ 
+  const categories = [
+    { id: 'picture', name: 'Best Picture', points: 10, nominees: ['The Brutalist', 'Conclave', 'Anora', 'Emilia Pérez', 'Wicked', 'Dune: Part Two'] },
+    { id: 'director', name: 'Best Director', points: 8, nominees: ['Brady Corbet', 'Edward Berger', 'Sean Baker', 'Jacques Audiard', 'Denis Villeneuve'] },
+    { id: 'actor', name: 'Best Actor', points: 5, nominees: ['Adrien Brody', 'Timothée Chalamet', 'Ralph Fiennes', 'Colman Domingo', 'Sebastian Stan'] },
+    { id: 'actress', name: 'Best Actress', points: 5, nominees: ['Mikey Madison', 'Demi Moore', 'Cynthia Erivo', 'Karla Sofía Gascón', 'Fernanda Torres'] },
+    { id: 'supporting_actor', name: 'Best Supporting Actor', points: 3, nominees: ['Guy Pearce', 'Yura Borisov', 'Kieran Culkin', 'Edward Norton', 'Jeremy Strong'] },
+    { id: 'supporting_actress', name: 'Best Supporting Actress', points: 3, nominees: ['Felicity Jones', 'Isabella Rossellini', 'Ariana Grande', 'Zoe Saldaña', 'Monica Barbaro'] },
+  ];
+ 
+  // Load winners from localStorage
+  const savedWinners = localStorage.getItem('oscarPoolWinners');
+  if (savedWinners) winners = JSON.parse(savedWinners);
+ 
+  function showPage(pageId, btn) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('visible'));
+    document.getElementById(pageId).classList.add('visible');
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+  }
+ 
+  function joinPool() {
+    const name = document.getElementById('playerName').value.trim();
+    if (!name) return;
+    currentPlayer = name;
+    renderCategories();
+    showPage('picksPage');
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('nav button')[1].classList.add('active');
+    if (socket) socket.emit('join', { name });
+  }
+ 
+  function renderCategories() {
+    const container = document.getElementById('categoriesContainer');
+    container.innerHTML = '';
+    categories.forEach(cat => {
+      const card = document.createElement('div');
+      card.className = 'category-card';
+      card.innerHTML = `<h3>${cat.name} <span class="points-badge">(${cat.points} pts)</span></h3>
+        <div class="nominees" id="nominees-${cat.id}">
+          ${cat.nominees.map(n => {
+            let classes = 'nominee-btn';
+            if (winners[cat.id]) {
+              if (n === winners[cat.id]) classes += ' is-winner';
+              if (picks[cat.id] === n && n === winners[cat.id]) classes += ' correct';
+              if (picks[cat.id] === n && n !== winners[cat.id]) classes += ' wrong';
+            }
+            return `<button class="${classes}" onclick="pickNominee('${cat.id}', this, '${n.replace(/'/g, "\\'")}')">${n}</button>`;
+          }).join('')}
+        </div>`;
+      container.appendChild(card);
+    });
+  }
+ 
+  function pickNominee(catId, btn, name) {
+    if (winners[catId]) return; // lock picks once winner is set
+    const container = document.getElementById('nominees-' + catId);
+    container.querySelectorAll('.nominee-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    picks[catId] = name;
+    updateSubmitButton();
+  }
+ 
+  function updateSubmitButton() {
+    const total = categories.length;
+    const picked = Object.keys(picks).length;
+    document.getElementById('pickStatus').textContent = `${picked} of ${total} categories picked`;
+    document.getElementById('submitPicks').disabled = picked < total;
+  }
+ 
+  function submitPicks() {
+    if (socket) {
+      socket.emit('submitPicks', { player: currentPlayer, picks });
+    }
+    localStorage.setItem('oscarPoolPicks_' + currentPlayer, JSON.stringify(picks));
+    alert('Picks submitted!');
+  }
+ 
+  // ADMIN
+  function adminUnlock() {
+    const pw = document.getElementById('adminPassword').value;
+    if (pw === ADMIN_PASSWORD) {
+      document.getElementById('adminLogin').style.display = 'none';
+      document.getElementById('adminContent').classList.add('unlocked');
+      renderAdminCategories();
+    } else {
+      alert('Incorrect password');
+    }
+  }
+ 
+  function renderAdminCategories() {
+    const container = document.getElementById('adminCategoriesContainer');
+    container.innerHTML = '';
+    categories.forEach(cat => {
+      const div = document.createElement('div');
+      div.className = 'admin-category';
+      const winnerLabel = winners[cat.id] ? `<span class="winner-set">✓ ${winners[cat.id]}</span>` : '';
+      div.innerHTML = `<h3>${cat.name} <span class="points-badge">(${cat.points} pts)</span>${winnerLabel}</h3>
+        <div id="admin-nominees-${cat.id}">
+          ${cat.nominees.map(n => {
+            const isWinner = winners[cat.id] === n ? ' chosen-winner' : '';
+            return `<button class="winner-btn${isWinner}" onclick="setWinner('${cat.id}', this, '${n.replace(/'/g, "\\'")}')">${n}</button>`;
+          }).join('')}
+        </div>`;
+      container.appendChild(div);
+    });
+    updateAdminStatus();
+  }
+ 
+  function setWinner(catId, btn, name) {
+    const container = document.getElementById('admin-nominees-' + catId);
+    container.querySelectorAll('.winner-btn').forEach(b => b.classList.remove('chosen-winner'));
+    btn.classList.add('chosen-winner');
+    winners[catId] = name;
+    localStorage.setItem('oscarPoolWinners', JSON.stringify(winners));
+    renderAdminCategories();
+  }
+ 
+  function updateAdminStatus() {
+    const set = Object.keys(winners).length;
+    const total = categories.length;
+    document.getElementById('adminStatus').textContent = `${set} of ${total} winners set`;
+  }
+ 
+  function recalculateScores() {
+    localStorage.setItem('oscarPoolWinners', JSON.stringify(winners));
+ 
+    if (socket) {
+      socket.emit('setWinners', winners);
+    }
+ 
+    // Update the picks page to show correct/wrong
+    if (currentPlayer) renderCategories();
+ 
+    // Recalculate local leaderboard from all saved picks
+    const allPlayers = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key.startsWith('oscarPoolPicks_')) {
+        const playerName = key.replace('oscarPoolPicks_', '');
+        const playerPicks = JSON.parse(localStorage.getItem(key));
+        let score = 0;
+        categories.forEach(cat => {
+          if (winners[cat.id] && playerPicks[cat.id] === winners[cat.id]) {
+            score += cat.points;
+          }
+        });
+        allPlayers.push({ name: playerName, score });
+      }
+    }
+ 
+    allPlayers.sort((a, b) => b.score - a.score);
+    renderLeaderboard(allPlayers);
+    renderPodium(allPlayers);
+    renderScoreBars(allPlayers);
+ 
+    alert('Winners updated and scores recalculated!');
+  }
+ 
+  // LEADERBOARD
+  if (socket) {
+    socket.on('leaderboardUpdate', (data) => {
+      renderLeaderboard(data);
+      renderPodium(data);
+      renderScoreBars(data);
+    });
+  }
+ 
+  function renderLeaderboard(players) {
+    const list = document.getElementById('leaderboardList');
+    list.innerHTML = '';
+    document.getElementById('leaderboardStats').textContent = `${players.length} player${players.length !== 1 ? 's' : ''} · ${Object.keys(winners).length} of ${categories.length} winners announced`;
+    players.forEach((p, i) => {
+      const row = document.createElement('div');
+      let rankClass = '';
+      if (i === 0) rankClass = 'first';
+      else if (i === 1) rankClass = 'second';
+      else if (i === 2) rankClass = 'third';
+      row.className = `leader-row ${rankClass}`;
+      row.innerHTML = `
+        <div class="leader-rank">${i + 1}</div>
+        <div class="leader-name">${p.name}</div>
+        <div class="leader-score">${p.score} pts</div>`;
+      list.appendChild(row);
+    });
+  }
+ 
+  function renderPodium(players) {
+    const podium = document.getElementById('podium');
+    const spots = [
+      { index: 1, cls: 'podium-second' },
+      { index: 0, cls: 'podium-first' },
+      { index: 2, cls: 'podium-third' }
+    ];
+    podium.innerHTML = spots.map(s => {
+      const p = players[s.index];
+      if (!p) return `<div class="podium-spot podium-empty">
+        <div class="podium-name">—</div>
+        <div class="podium-score">0</div>
+        <div class="podium-bar"><span class="podium-rank">${s.index + 1}</span></div>
+      </div>`;
+      return `<div class="podium-spot ${s.cls}">
+        <div class="podium-name">${p.name}</div>
+        <div class="podium-score">${p.score}</div>
+        <div class="podium-bar"><span class="podium-rank">${s.index + 1}</span></div>
+      </div>`;
+    }).join('');
+  }
+ 
+  function renderScoreBars(players) {
+    const container = document.getElementById('scoreBars');
+    const maxScore = Math.max(...players.map(p => p.score), 1);
+    container.innerHTML = players.map((p, i) => {
+      let fillClass = 'score-bar-fill-rest';
+      if (i === 0) fillClass = 'score-bar-fill-first';
+      else if (i === 1) fillClass = 'score-bar-fill-second';
+      else if (i === 2) fillClass = 'score-bar-fill-third';
+      const pct = Math.max((p.score / maxScore) * 100, 2);
+      return `<div class="score-bar-row">
+        <div class="score-bar-name">${p.name}</div>
+        <div class="score-bar-track">
+          <div class="score-bar-fill ${fillClass}" style="width:${pct}%">${p.score}</div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+ 
+  // Load leaderboard on page load from localStorage
+  (function loadLocalLeaderboard() {
+    const allPlayers = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key.startsWith('oscarPoolPicks_')) {
+        const playerName = key.replace('oscarPoolPicks_', '');
+        const playerPicks = JSON.parse(localStorage.getItem(key));
+        let score = 0;
+        categories.forEach(cat => {
+          if (winners[cat.id] && playerPicks[cat.id] === winners[cat.id]) {
+            score += cat.points;
+          }
+        });
+        allPlayers.push({ name: playerName, score });
+      }
+    }
+    if (allPlayers.length > 0) {
+      allPlayers.sort((a, b) => b.score - a.score);
+      renderLeaderboard(allPlayers);
+      renderPodium(allPlayers);
+      renderScoreBars(allPlayers);
+    }
+  })();
+</script>
+ 
+</body>
+</html>
