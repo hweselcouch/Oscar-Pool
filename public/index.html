@@ -8,23 +8,23 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: Georgia, 'Times New Roman', serif;
-    background: linear-gradient(to bottom, #0a0e2a, #1b3a5c) fixed;
-    color: #c0c0c0;
+    font-family: 'Georgia', serif;
+    background: #1a1a2e;
+    color: #eee;
     min-height: 100vh;
   }
   header {
-    background: linear-gradient(135deg, #0a0e2a 0%, #12204a 100%);
-    border-bottom: 3px solid #c0c0c0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-bottom: 3px solid #c9a227;
     padding: 1.2rem;
     text-align: center;
   }
   header h1 {
     font-size: 2rem;
-    color: #d4d4d4;
+    color: #c9a227;
     letter-spacing: 2px;
   }
-  header h1 span { font-size: 1.2rem; color: #a0a0a0; }
+  header h1 span { font-size: 1.2rem; color: #aaa; }
   nav {
     display: flex;
     justify-content: center;
@@ -34,8 +34,8 @@
   }
   nav button {
     background: transparent;
-    color: #c0c0c0;
-    border: 1px solid #c0c0c0;
+    color: #c9a227;
+    border: 1px solid #c9a227;
     padding: 0.5rem 1.2rem;
     font-size: 0.95rem;
     cursor: pointer;
@@ -44,8 +44,8 @@
     transition: all 0.2s;
   }
   nav button:hover, nav button.active {
-    background: #c0c0c0;
-    color: #0a0e2a;
+    background: #c9a227;
+    color: #1a1a2e;
   }
   .page { display: none; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
   .page.visible { display: block; }
@@ -57,9 +57,9 @@
     font-size: 1.2rem;
     padding: 0.8rem 1rem;
     border-radius: 6px;
-    border: 2px solid #c0c0c0;
-    background: #0a0e2a;
-    color: #c0c0c0;
+    border: 2px solid #c9a227;
+    background: #16213e;
+    color: #eee;
     width: 100%;
     max-width: 320px;
     font-family: inherit;
@@ -69,8 +69,8 @@
     margin: 1rem auto 0;
     font-size: 1.1rem;
     padding: 0.8rem 2.5rem;
-    background: #c0c0c0;
-    color: #0a0e2a;
+    background: #c9a227;
+    color: #1a1a2e;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -78,20 +78,20 @@
     font-family: inherit;
   }
   .category-card {
-    background: rgba(10, 14, 42, 0.8);
-    border: 1px solid #2a3a6a;
+    background: #16213e;
+    border: 1px solid #333;
     border-radius: 8px;
     padding: 1.2rem;
     margin-bottom: 1rem;
   }
   .category-card h3 {
-    color: #d4d4d4;
+    color: #c9a227;
     margin-bottom: 0.6rem;
     font-size: 1.05rem;
   }
   .category-card .points-badge {
     font-size: 0.8rem;
-    color: #a0a0a0;
+    color: #aaa;
     font-weight: normal;
   }
   .nominees {
@@ -100,9 +100,9 @@
     gap: 0.35rem;
   }
   .nominee-btn {
-    background: #0a0e2a;
-    border: 1px solid #2a3a6a;
-    color: #c0c0c0;
+    background: #1a1a2e;
+    border: 1px solid #444;
+    color: #ddd;
     padding: 0.55rem 0.8rem;
     border-radius: 5px;
     cursor: pointer;
@@ -111,11 +111,11 @@
     transition: all 0.15s;
     font-family: inherit;
   }
-  .nominee-btn:hover { border-color: #c0c0c0; color: #e0e0e0; }
+  .nominee-btn:hover { border-color: #c9a227; color: #fff; }
   .nominee-btn.selected {
-    background: #c0c0c0;
-    color: #0a0e2a;
-    border-color: #c0c0c0;
+    background: #c9a227;
+    color: #1a1a2e;
+    border-color: #c9a227;
     font-weight: bold;
   }
   .nominee-btn.correct {
@@ -135,8 +135,8 @@
     width: 100%;
     padding: 1rem;
     font-size: 1.2rem;
-    background: #c0c0c0;
-    color: #0a0e2a;
+    background: #c9a227;
+    color: #1a1a2e;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -150,12 +150,12 @@
   }
   .pick-status {
     text-align: center;
-    color: #a0a0a0;
+    color: #aaa;
     margin-bottom: 1rem;
   }
   .leaderboard-stats {
     text-align: center;
-    color: #a0a0a0;
+    color: #aaa;
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
   }
@@ -178,7 +178,7 @@
   .podium-name {
     font-size: 0.95rem;
     font-weight: bold;
-    color: #d4d4d4;
+    color: #eee;
     margin-bottom: 0.3rem;
     text-align: center;
     word-break: break-word;
@@ -196,38 +196,39 @@
     justify-content: center;
     padding-top: 0.5rem;
     transition: height 0.8s ease;
-    position: relative;
   }
   .podium-bar .podium-rank {
     font-size: 1.5rem;
     font-weight: bold;
   }
-  .podium-first .podium-score { color: #e0e0e0; }
+  .podium-first .podium-score { color: #c9a227; }
   .podium-first .podium-bar {
-    background: linear-gradient(to top, #606060, #d4d4d4);
+    background: linear-gradient(to top, #7a5d1b, #c9a227);
     min-height: 120px;
   }
-  .podium-first .podium-rank { color: #0a0e2a; }
-  .podium-second .podium-score { color: #b0b0b0; }
+  .podium-first .podium-rank { color: #1a1a2e; }
+  .podium-second .podium-score { color: #c0c0c0; }
   .podium-second .podium-bar {
-    background: linear-gradient(to top, #505050, #a0a0a0);
+    background: linear-gradient(to top, #606060, #c0c0c0);
     min-height: 85px;
   }
-  .podium-second .podium-rank { color: #0a0e2a; }
-  .podium-third .podium-score { color: #909090; }
+  .podium-second .podium-rank { color: #1a1a2e; }
+  .podium-third .podium-score { color: #cd7f32; }
   .podium-third .podium-bar {
-    background: linear-gradient(to top, #404040, #808080);
+    background: linear-gradient(to top, #6b3e1f, #cd7f32);
     min-height: 60px;
   }
-  .podium-third .podium-rank { color: #0a0e2a; }
+  .podium-third .podium-rank { color: #1a1a2e; }
   .podium-empty .podium-bar {
-    background: #12204a;
-    border: 1px dashed #2a3a6a;
+    background: #16213e;
+    border: 1px dashed #333;
     min-height: 40px;
   }
   .podium-empty .podium-name { color: #555; }
   .podium-empty .podium-score { color: #555; }
-  .score-bars { margin-bottom: 2rem; }
+  .score-bars {
+    margin-bottom: 2rem;
+  }
   .score-bar-row {
     display: flex;
     align-items: center;
@@ -236,7 +237,7 @@
   .score-bar-name {
     width: 100px;
     font-size: 0.85rem;
-    color: #a0a0a0;
+    color: #ccc;
     text-align: right;
     padding-right: 0.8rem;
     overflow: hidden;
@@ -246,11 +247,11 @@
   .score-bar-track {
     flex: 1;
     height: 28px;
-    background: #0a0e2a;
+    background: #1a1a2e;
     border-radius: 14px;
     overflow: hidden;
     position: relative;
-    border: 1px solid #2a3a6a;
+    border: 1px solid #333;
   }
   .score-bar-fill {
     height: 100%;
@@ -261,15 +262,21 @@
     padding-left: 0.6rem;
     font-size: 0.8rem;
     font-weight: bold;
-    color: #0a0e2a;
+    color: #1a1a2e;
     min-width: 0;
   }
-  .score-bar-fill-first { background: linear-gradient(to right, #808080, #d4d4d4); }
-  .score-bar-fill-second { background: linear-gradient(to right, #606060, #a0a0a0); }
-  .score-bar-fill-third { background: linear-gradient(to right, #404040, #808080); }
+  .score-bar-fill-first {
+    background: linear-gradient(to right, #7a5d1b, #c9a227);
+  }
+  .score-bar-fill-second {
+    background: linear-gradient(to right, #707070, #c0c0c0);
+  }
+  .score-bar-fill-third {
+    background: linear-gradient(to right, #6b3e1f, #cd7f32);
+  }
   .score-bar-fill-rest {
-    background: linear-gradient(to right, #2a3a6a, #3a4a7a);
-    color: #c0c0c0;
+    background: linear-gradient(to right, #2a2a4e, #3a3a5e);
+    color: #ddd;
   }
   .score-bar-value {
     position: absolute;
@@ -277,13 +284,22 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.8rem;
-    color: #a0a0a0;
+    color: #aaa;
+  }
+  .section-label {
+    text-align: center;
+    color: #c9a227;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
   }
   .leader-row {
     display: flex;
     align-items: center;
-    background: rgba(10, 14, 42, 0.8);
-    border: 1px solid #2a3a6a;
+    background: #16213e;
+    border: 1px solid #333;
     border-radius: 8px;
     padding: 1rem 1.2rem;
     margin-bottom: 0.6rem;
@@ -295,435 +311,492 @@
     margin-bottom: 0;
     border-radius: 8px 8px 0 0;
   }
-  .leader-row.first {
-    border-color: #d4d4d4;
-    background: linear-gradient(135deg, rgba(10,14,42,0.8), rgba(18,32,74,0.9));
-  }
-  .leader-row.second { border-color: #a0a0a0; }
-  .leader-row.third { border-color: #808080; }
+  .leader-row.first { border-color: #c9a227; background: linear-gradient(135deg, #16213e, #2a2a1e); }
+  .leader-row.second { border-color: #aaa; }
+  .leader-row.third { border-color: #cd7f32; }
   .leader-rank {
     font-size: 1.5rem;
     font-weight: bold;
     width: 2.5rem;
     text-align: center;
-    color: #d4d4d4;
+    color: #c9a227;
   }
   .leader-name {
     flex: 1;
     font-size: 1.1rem;
-    font-weight: bold;
-    color: #c0c0c0;
+    margin-left: 0.8rem;
   }
   .leader-score {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
-    color: #d4d4d4;
+    color: #c9a227;
   }
- 
-  /* ADMIN PAGE */
-  .admin-password-box {
-    text-align: center;
-    margin-top: 3rem;
+  .leader-correct {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-left: 0.5rem;
+    min-width: 60px;
+    text-align: right;
   }
-  .admin-password-box input {
-    font-size: 1.2rem;
-    padding: 0.8rem 1rem;
-    border-radius: 6px;
-    border: 2px solid #c0c0c0;
-    background: #0a0e2a;
-    color: #c0c0c0;
+  .leader-expand-hint {
     width: 100%;
-    max-width: 320px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 0.3rem;
+  }
+  .leader-details {
+    display: none;
+    background: #131b2e;
+    border: 1px solid #333;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+  .leader-details.visible {
+    display: block;
+  }
+  .leader-details-first { border-color: #c9a227; }
+  .leader-details-second { border-color: #aaa; }
+  .leader-details-third { border-color: #cd7f32; }
+  .pick-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #1e2a42;
+    font-size: 0.9rem;
+  }
+  .pick-row:last-child {
+    border-bottom: none;
+  }
+  .pick-category {
+    color: #aaa;
+    flex: 0 0 40%;
+  }
+  .pick-choice {
+    flex: 1;
+    text-align: right;
+    color: #ddd;
+  }
+  .pick-points {
+    flex: 0 0 50px;
+    text-align: right;
+    font-weight: bold;
+  }
+  .pick-correct .pick-choice {
+    color: #2ecc71;
+  }
+  .pick-correct .pick-points {
+    color: #2ecc71;
+  }
+  .pick-wrong .pick-choice {
+    color: #e74c3c;
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+  .pick-wrong .pick-points {
+    color: #e74c3c;
+  }
+  .pick-pending .pick-choice {
+    color: #888;
+  }
+  .pick-pending .pick-points {
+    color: #444;
+  }
+  .trophy { font-size: 1.5rem; }
+  .admin-login { text-align: center; margin: 2rem 0; }
+  .admin-login input {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 2px solid #c9a227;
+    background: #16213e;
+    color: #eee;
     font-family: inherit;
   }
-  .admin-password-box button {
-    display: block;
-    margin: 1rem auto 0;
-    font-size: 1.1rem;
-    padding: 0.8rem 2.5rem;
-    background: #c0c0c0;
-    color: #0a0e2a;
+  .admin-login button {
+    padding: 0.6rem 1.5rem;
+    background: #c9a227;
+    color: #1a1a2e;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-weight: bold;
+    font-size: 1rem;
+    margin-left: 0.5rem;
     font-family: inherit;
   }
-  .admin-content { display: none; }
-  .admin-content.unlocked { display: block; }
-  .admin-category {
-    background: rgba(10, 14, 42, 0.8);
-    border: 1px solid #2a3a6a;
+  .admin-card {
+    background: #16213e;
+    border: 1px solid #333;
     border-radius: 8px;
     padding: 1.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
   }
-  .admin-category h3 {
-    color: #d4d4d4;
-    margin-bottom: 0.6rem;
-    font-size: 1.05rem;
-  }
-  .admin-category .winner-set {
-    color: #2ecc71;
-    font-size: 0.85rem;
-    margin-left: 0.5rem;
-  }
-  .winner-btn {
-    background: #0a0e2a;
-    border: 1px solid #2a3a6a;
-    color: #c0c0c0;
-    padding: 0.55rem 0.8rem;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: left;
-    font-size: 0.95rem;
-    transition: all 0.15s;
-    font-family: inherit;
-    display: block;
-    width: 100%;
-    margin-bottom: 0.35rem;
-  }
-  .winner-btn:hover { border-color: #2ecc71; color: #e0e0e0; }
-  .winner-btn.chosen-winner {
+  .admin-card h3 { color: #c9a227; margin-bottom: 0.5rem; }
+  .admin-card .nominee-btn.winner-set {
     background: #2ecc71;
     color: #fff;
     border-color: #2ecc71;
-    font-weight: bold;
   }
-  .admin-status {
+  .admin-card .winner-label {
+    color: #2ecc71;
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+  }
+  .no-players {
     text-align: center;
-    color: #a0a0a0;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-  }
-  #recalcScores {
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    font-size: 1.2rem;
-    background: #2ecc71;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    margin: 1.5rem 0;
-    font-family: inherit;
-  }
-  #recalcScores:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
+    color: #888;
+    padding: 3rem 1rem;
+    font-size: 1.1rem;
   }
 </style>
 </head>
 <body>
- 
 <header>
-  <h1>Oscar Pool <span>2026</span></h1>
+  <h1>Oscar Pool 2026 <span>&#127942;</span></h1>
   <nav>
-    <button class="active" onclick="showPage('joinPage', this)">Join</button>
-    <button onclick="showPage('picksPage', this)">My Picks</button>
-    <button onclick="showPage('leaderboardPage', this)">Leaderboard</button>
-    <button onclick="showPage('adminPage', this)">Admin</button>
+    <button class="active" data-page="join">Join</button>
+    <button data-page="picks">My Picks</button>
+    <button data-page="leaderboard">Leaderboard</button>
+    <button data-page="admin">Admin</button>
   </nav>
 </header>
- 
-<!-- JOIN PAGE -->
-<div id="joinPage" class="page visible">
+<div id="page-join" class="page visible">
   <div class="join-box">
-    <h2 style="color:#d4d4d4; margin-bottom:1rem;">Enter Your Name</h2>
-    <input type="text" id="playerName" placeholder="Your name">
-    <button onclick="joinPool()">Join Pool</button>
+    <h2 style="color:#c9a227; margin-bottom:1.5rem;">Enter Your Name</h2>
+    <input type="text" id="playerName" placeholder="Your name" autocomplete="off" />
+    <button id="joinBtn">Join the Pool</button>
+    <p style="color:#666; margin-top:1rem; font-size:0.9rem;" id="joinStatus"></p>
   </div>
 </div>
- 
-<!-- PICKS PAGE -->
-<div id="picksPage" class="page">
-  <p class="pick-status" id="pickStatus">Pick your winners below</p>
-  <div id="categoriesContainer"></div>
-  <button id="submitPicks" disabled onclick="submitPicks()">Submit Picks</button>
+<div id="page-picks" class="page">
+  <p class="pick-status" id="pickStatus">Select one nominee per category</p>
+  <div id="categoriesList"></div>
+  <button id="submitPicks" disabled>Submit My Picks</button>
 </div>
- 
-<!-- LEADERBOARD PAGE -->
-<div id="leaderboardPage" class="page">
-  <p class="leaderboard-stats" id="leaderboardStats"></p>
-  <div class="podium-container" id="podium"></div>
-  <div class="score-bars" id="scoreBars"></div>
+<div id="page-leaderboard" class="page">
+  <h2 style="color:#c9a227; text-align:center; margin-bottom:0.5rem;">Leaderboard</h2>
+  <p class="leaderboard-stats" id="lbStats"></p>
+  <div id="podium"></div>
+  <div id="scoreBars"></div>
+  <div class="section-label" id="detailsLabel"></div>
   <div id="leaderboardList"></div>
 </div>
- 
-<!-- ADMIN PAGE -->
-<div id="adminPage" class="page">
-  <div class="admin-password-box" id="adminLogin">
-    <h2 style="color:#d4d4d4; margin-bottom:1rem;">Admin Access</h2>
-    <input type="password" id="adminPassword" placeholder="Enter admin password">
-    <button onclick="adminUnlock()">Unlock</button>
+<div id="page-admin" class="page">
+  <h2 style="color:#c9a227; text-align:center; margin-bottom:1rem;">Admin - Set Winners</h2>
+  <div class="admin-login" id="adminLogin">
+    <input type="password" id="adminKey" placeholder="Admin key" />
+    <button id="adminLoginBtn">Unlock</button>
   </div>
-  <div class="admin-content" id="adminContent">
-    <p class="admin-status" id="adminStatus">Select the actual winner in each category</p>
-    <div id="adminCategoriesContainer"></div>
-    <button id="recalcScores" onclick="recalculateScores()">Update Winners &amp; Recalculate Scores</button>
-  </div>
+  <div id="adminPanel" style="display:none;"></div>
 </div>
- 
 <script>
-  const socket = typeof io !== 'undefined' ? io() : null;
-  let currentPlayer = null;
-  let picks = {};
-  let winners = {};
-  const ADMIN_PASSWORD = 'oscar2026';
+var socket = io();
+var categories = [];
+var currentPicks = {};
+var currentName = '';
+var winners = {};
+var adminKey = '';
+var isSubmitted = false;
+var expandedPlayer = null;
  
-  const categories = [
-    { id: 'picture', name: 'Best Picture', points: 10, nominees: ['The Brutalist', 'Conclave', 'Anora', 'Emilia Pérez', 'Wicked', 'Dune: Part Two'] },
-    { id: 'director', name: 'Best Director', points: 8, nominees: ['Brady Corbet', 'Edward Berger', 'Sean Baker', 'Jacques Audiard', 'Denis Villeneuve'] },
-    { id: 'actor', name: 'Best Actor', points: 5, nominees: ['Adrien Brody', 'Timothée Chalamet', 'Ralph Fiennes', 'Colman Domingo', 'Sebastian Stan'] },
-    { id: 'actress', name: 'Best Actress', points: 5, nominees: ['Mikey Madison', 'Demi Moore', 'Cynthia Erivo', 'Karla Sofía Gascón', 'Fernanda Torres'] },
-    { id: 'supporting_actor', name: 'Best Supporting Actor', points: 3, nominees: ['Guy Pearce', 'Yura Borisov', 'Kieran Culkin', 'Edward Norton', 'Jeremy Strong'] },
-    { id: 'supporting_actress', name: 'Best Supporting Actress', points: 3, nominees: ['Felicity Jones', 'Isabella Rossellini', 'Ariana Grande', 'Zoe Saldaña', 'Monica Barbaro'] },
-  ];
+document.querySelectorAll('nav button').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('nav button').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('visible'); });
+    document.getElementById('page-' + btn.dataset.page).classList.add('visible');
+  });
+});
  
-  // Load winners from localStorage
-  const savedWinners = localStorage.getItem('oscarPoolWinners');
-  if (savedWinners) winners = JSON.parse(savedWinners);
+function showPage(name) {
+  document.querySelectorAll('nav button').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.page === name);
+  });
+  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('visible'); });
+  document.getElementById('page-' + name).classList.add('visible');
+}
  
-  function showPage(pageId, btn) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('visible'));
-    document.getElementById(pageId).classList.add('visible');
-    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-    if (btn) btn.classList.add('active');
+document.getElementById('joinBtn').addEventListener('click', joinPool);
+document.getElementById('playerName').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') joinPool();
+});
+ 
+function joinPool() {
+  var name = document.getElementById('playerName').value.trim();
+  if (!name) return;
+  currentName = name;
+  document.getElementById('joinStatus').textContent = 'Welcome, ' + name + '!';
+  renderCategories();
+  showPage('picks');
+}
+ 
+function renderCategories() {
+  var container = document.getElementById('categoriesList');
+  container.innerHTML = '';
+  categories.forEach(function(cat) {
+    var card = document.createElement('div');
+    card.className = 'category-card';
+    var winnerNominee = winners[cat.id];
+    card.innerHTML =
+      '<h3>' + cat.name + ' <span class="points-badge">(' + cat.points + ' pt' + (cat.points > 1 ? 's' : '') + ')</span></h3>' +
+      '<div class="nominees">' +
+      cat.nominees.map(function(n) {
+        var cls = 'nominee-btn';
+        if (currentPicks[cat.id] === n) cls += ' selected';
+        if (winnerNominee) {
+          if (n === winnerNominee) cls += ' is-winner';
+          if (currentPicks[cat.id] === n && n === winnerNominee) cls += ' correct';
+          else if (currentPicks[cat.id] === n && n !== winnerNominee) cls += ' wrong';
+        }
+        var disabled = isSubmitted ? 'disabled' : '';
+        return '<button class="' + cls + '" data-cat="' + cat.id + '" data-nominee="' + n + '" ' + disabled + '>' + n + (winnerNominee === n ? ' WINNER' : '') + '</button>';
+      }).join('') +
+      '</div>';
+    container.appendChild(card);
+  });
+  if (!isSubmitted) {
+    container.querySelectorAll('.nominee-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var catId = btn.dataset.cat;
+        currentPicks[catId] = btn.dataset.nominee;
+        renderCategories();
+        updatePickStatus();
+      });
+    });
   }
+  updatePickStatus();
+}
  
-  function joinPool() {
-    const name = document.getElementById('playerName').value.trim();
-    if (!name) return;
-    currentPlayer = name;
-    renderCategories();
-    showPage('picksPage');
-    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('nav button')[1].classList.add('active');
-    if (socket) socket.emit('join', { name });
+function updatePickStatus() {
+  var picked = Object.keys(currentPicks).length;
+  var total = categories.length;
+  var status = document.getElementById('pickStatus');
+  var btn = document.getElementById('submitPicks');
+  if (isSubmitted) {
+    status.textContent = 'Your picks are locked in, ' + currentName + '!';
+    btn.style.display = 'none';
+  } else {
+    status.textContent = picked + ' of ' + total + ' categories picked';
+    btn.disabled = picked < total;
+    btn.textContent = picked < total ? 'Pick all ' + total + ' categories to submit' : 'Submit My Picks';
   }
+}
  
-  function renderCategories() {
-    const container = document.getElementById('categoriesContainer');
+document.getElementById('submitPicks').addEventListener('click', function() {
+  if (!currentName) { showPage('join'); return; }
+  socket.emit('submitPicks', { name: currentName, picks: currentPicks });
+  isSubmitted = true;
+  renderCategories();
+  showPage('leaderboard');
+});
+ 
+function getMaxPossibleScore() {
+  var total = 0;
+  categories.forEach(function(cat) { total += cat.points; });
+  return total;
+}
+ 
+function renderPodium(leaderboard) {
+  var container = document.getElementById('podium');
+  if (!leaderboard || leaderboard.length === 0) {
     container.innerHTML = '';
-    categories.forEach(cat => {
-      const card = document.createElement('div');
-      card.className = 'category-card';
-      card.innerHTML = `<h3>${cat.name} <span class="points-badge">(${cat.points} pts)</span></h3>
-        <div class="nominees" id="nominees-${cat.id}">
-          ${cat.nominees.map(n => {
-            let classes = 'nominee-btn';
-            if (winners[cat.id]) {
-              if (n === winners[cat.id]) classes += ' is-winner';
-              if (picks[cat.id] === n && n === winners[cat.id]) classes += ' correct';
-              if (picks[cat.id] === n && n !== winners[cat.id]) classes += ' wrong';
-            }
-            return `<button class="${classes}" onclick="pickNominee('${cat.id}', this, '${n.replace(/'/g, "\\'")}')">${n}</button>`;
-          }).join('')}
-        </div>`;
-      container.appendChild(card);
-    });
+    return;
   }
+  var maxScore = getMaxPossibleScore();
+  if (maxScore === 0) maxScore = 1;
+  var first = leaderboard[0] || null;
+  var second = leaderboard[1] || null;
+  var third = leaderboard[2] || null;
  
-  function pickNominee(catId, btn, name) {
-    if (winners[catId]) return; // lock picks once winner is set
-    const container = document.getElementById('nominees-' + catId);
-    container.querySelectorAll('.nominee-btn').forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-    picks[catId] = name;
-    updateSubmitButton();
-  }
- 
-  function updateSubmitButton() {
-    const total = categories.length;
-    const picked = Object.keys(picks).length;
-    document.getElementById('pickStatus').textContent = `${picked} of ${total} categories picked`;
-    document.getElementById('submitPicks').disabled = picked < total;
-  }
- 
-  function submitPicks() {
-    if (socket) {
-      socket.emit('submitPicks', { player: currentPlayer, picks });
+  function spotHtml(player, place) {
+    var placeClass = place === 1 ? 'podium-first' : place === 2 ? 'podium-second' : 'podium-third';
+    var label = place === 1 ? '1st' : place === 2 ? '2nd' : '3rd';
+    var emoji = place === 1 ? '&#127942;' : place === 2 ? '&#129352;' : '&#129353;';
+    if (!player) {
+      return '<div class="podium-spot podium-empty">' +
+        '<div class="podium-name">---</div>' +
+        '<div class="podium-score">-</div>' +
+        '<div class="podium-bar"><div class="podium-rank">' + label + '</div></div>' +
+        '</div>';
     }
-    localStorage.setItem('oscarPoolPicks_' + currentPlayer, JSON.stringify(picks));
-    alert('Picks submitted!');
+    var heightPercent = Math.max(20, (player.score / maxScore) * 100);
+    var barHeight = place === 1 ? Math.max(120, heightPercent * 1.5) : place === 2 ? Math.max(85, heightPercent * 1.2) : Math.max(60, heightPercent);
+    return '<div class="podium-spot ' + placeClass + '">' +
+      '<div class="podium-name">' + player.name + '</div>' +
+      '<div class="podium-score">' + emoji + ' ' + player.score + ' pts</div>' +
+      '<div class="podium-bar" style="height:' + barHeight + 'px"><div class="podium-rank">' + label + '</div></div>' +
+      '</div>';
   }
  
-  // ADMIN
-  function adminUnlock() {
-    const pw = document.getElementById('adminPassword').value;
-    if (pw === ADMIN_PASSWORD) {
-      document.getElementById('adminLogin').style.display = 'none';
-      document.getElementById('adminContent').classList.add('unlocked');
-      renderAdminCategories();
-    } else {
-      alert('Incorrect password');
-    }
-  }
+  container.innerHTML = '<div class="podium-container">' +
+    spotHtml(second, 2) +
+    spotHtml(first, 1) +
+    spotHtml(third, 3) +
+    '</div>';
+}
  
-  function renderAdminCategories() {
-    const container = document.getElementById('adminCategoriesContainer');
+function renderScoreBars(leaderboard) {
+  var container = document.getElementById('scoreBars');
+  if (!leaderboard || leaderboard.length === 0) {
     container.innerHTML = '';
-    categories.forEach(cat => {
-      const div = document.createElement('div');
-      div.className = 'admin-category';
-      const winnerLabel = winners[cat.id] ? `<span class="winner-set">✓ ${winners[cat.id]}</span>` : '';
-      div.innerHTML = `<h3>${cat.name} <span class="points-badge">(${cat.points} pts)</span>${winnerLabel}</h3>
-        <div id="admin-nominees-${cat.id}">
-          ${cat.nominees.map(n => {
-            const isWinner = winners[cat.id] === n ? ' chosen-winner' : '';
-            return `<button class="winner-btn${isWinner}" onclick="setWinner('${cat.id}', this, '${n.replace(/'/g, "\\'")}')">${n}</button>`;
-          }).join('')}
-        </div>`;
-      container.appendChild(div);
-    });
-    updateAdminStatus();
+    return;
   }
+  var maxScore = getMaxPossibleScore();
+  if (maxScore === 0) maxScore = 1;
+  var html = '<div class="score-bars">';
+  leaderboard.forEach(function(p, i) {
+    var percent = maxScore > 0 ? (p.score / maxScore) * 100 : 0;
+    var fillClass = i === 0 ? 'score-bar-fill-first' : i === 1 ? 'score-bar-fill-second' : i === 2 ? 'score-bar-fill-third' : 'score-bar-fill-rest';
+    var isMe = p.name === currentName ? ' (you)' : '';
+    html += '<div class="score-bar-row">' +
+      '<div class="score-bar-name">' + p.name + isMe + '</div>' +
+      '<div class="score-bar-track">' +
+      '<div class="score-bar-fill ' + fillClass + '" style="width:' + Math.max(percent, 2) + '%">' +
+      (percent > 15 ? p.score + ' pts' : '') +
+      '</div>' +
+      (percent <= 15 ? '<span class="score-bar-value">' + p.score + ' pts</span>' : '') +
+      '</div>' +
+      '</div>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
  
-  function setWinner(catId, btn, name) {
-    const container = document.getElementById('admin-nominees-' + catId);
-    container.querySelectorAll('.winner-btn').forEach(b => b.classList.remove('chosen-winner'));
-    btn.classList.add('chosen-winner');
-    winners[catId] = name;
-    localStorage.setItem('oscarPoolWinners', JSON.stringify(winners));
-    renderAdminCategories();
+function renderLeaderboard(leaderboard, info) {
+  var container = document.getElementById('leaderboardList');
+  var stats = document.getElementById('lbStats');
+  var detailsLabel = document.getElementById('detailsLabel');
+  if (info) {
+    stats.textContent = info.playerCount + ' player' + (info.playerCount !== 1 ? 's' : '') + ' | ' + info.categoriesAnnounced + ' of ' + info.totalCategories + ' winners announced';
   }
- 
-  function updateAdminStatus() {
-    const set = Object.keys(winners).length;
-    const total = categories.length;
-    document.getElementById('adminStatus').textContent = `${set} of ${total} winners set`;
+  renderPodium(leaderboard);
+  renderScoreBars(leaderboard);
+  if (!leaderboard || leaderboard.length === 0) {
+    container.innerHTML = '<div class="no-players">No players yet - share the link with friends!</div>';
+    detailsLabel.textContent = '';
+    return;
   }
- 
-  function recalculateScores() {
-    localStorage.setItem('oscarPoolWinners', JSON.stringify(winners));
- 
-    if (socket) {
-      socket.emit('setWinners', winners);
-    }
- 
-    // Update the picks page to show correct/wrong
-    if (currentPlayer) renderCategories();
- 
-    // Recalculate local leaderboard from all saved picks
-    const allPlayers = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key.startsWith('oscarPoolPicks_')) {
-        const playerName = key.replace('oscarPoolPicks_', '');
-        const playerPicks = JSON.parse(localStorage.getItem(key));
-        let score = 0;
-        categories.forEach(cat => {
-          if (winners[cat.id] && playerPicks[cat.id] === winners[cat.id]) {
-            score += cat.points;
-          }
-        });
-        allPlayers.push({ name: playerName, score });
+  detailsLabel.textContent = 'Tap a player to see their picks';
+  var html = '';
+  leaderboard.forEach(function(p, i) {
+    var rankClass = i === 0 ? 'first' : i === 1 ? 'second' : i === 2 ? 'third' : '';
+    var detailsClass = i === 0 ? 'leader-details-first' : i === 1 ? 'leader-details-second' : i === 2 ? 'leader-details-third' : '';
+    var trophy = i === 0 ? '<span class="trophy">&#127942;</span>' : i === 1 ? '<span class="trophy">&#129352;</span>' : i === 2 ? '<span class="trophy">&#129353;</span>' : '';
+    var isMe = p.name === currentName ? ' (you)' : '';
+    var isExpanded = expandedPlayer === p.name;
+    html += '<div class="leader-row ' + rankClass + (isExpanded ? ' expanded' : '') + '" data-player="' + p.name + '">' +
+      '<div class="leader-rank">' + (trophy || (i + 1)) + '</div>' +
+      '<div class="leader-name">' + p.name + isMe + '</div>' +
+      '<div class="leader-score">' + p.score + '</div>' +
+      '<div class="leader-correct">' + p.correct + '/' + p.total + ' right</div>' +
+      '<div class="leader-expand-hint">' + (isExpanded ? 'tap to collapse' : 'tap to see picks') + '</div>' +
+      '</div>';
+    html += '<div class="leader-details ' + detailsClass + (isExpanded ? ' visible' : '') + '">';
+    categories.forEach(function(cat) {
+      var pick = p.picks[cat.id];
+      var winner = winners[cat.id];
+      var rowClass = 'pick-row';
+      var pointsText = '';
+      if (!pick) {
+        rowClass += ' pick-pending';
+        pointsText = '-';
+      } else if (!winner) {
+        rowClass += ' pick-pending';
+        pointsText = '?';
+      } else if (pick === winner) {
+        rowClass += ' pick-correct';
+        pointsText = '+' + cat.points;
+      } else {
+        rowClass += ' pick-wrong';
+        pointsText = '0';
       }
-    }
- 
-    allPlayers.sort((a, b) => b.score - a.score);
-    renderLeaderboard(allPlayers);
-    renderPodium(allPlayers);
-    renderScoreBars(allPlayers);
- 
-    alert('Winners updated and scores recalculated!');
-  }
- 
-  // LEADERBOARD
-  if (socket) {
-    socket.on('leaderboardUpdate', (data) => {
-      renderLeaderboard(data);
-      renderPodium(data);
-      renderScoreBars(data);
+      html += '<div class="' + rowClass + '">' +
+        '<div class="pick-category">' + cat.name + '</div>' +
+        '<div class="pick-choice">' + (pick || 'no pick') + '</div>' +
+        '<div class="pick-points">' + pointsText + '</div>' +
+        '</div>';
     });
-  }
- 
-  function renderLeaderboard(players) {
-    const list = document.getElementById('leaderboardList');
-    list.innerHTML = '';
-    document.getElementById('leaderboardStats').textContent = `${players.length} player${players.length !== 1 ? 's' : ''} · ${Object.keys(winners).length} of ${categories.length} winners announced`;
-    players.forEach((p, i) => {
-      const row = document.createElement('div');
-      let rankClass = '';
-      if (i === 0) rankClass = 'first';
-      else if (i === 1) rankClass = 'second';
-      else if (i === 2) rankClass = 'third';
-      row.className = `leader-row ${rankClass}`;
-      row.innerHTML = `
-        <div class="leader-rank">${i + 1}</div>
-        <div class="leader-name">${p.name}</div>
-        <div class="leader-score">${p.score} pts</div>`;
-      list.appendChild(row);
-    });
-  }
- 
-  function renderPodium(players) {
-    const podium = document.getElementById('podium');
-    const spots = [
-      { index: 1, cls: 'podium-second' },
-      { index: 0, cls: 'podium-first' },
-      { index: 2, cls: 'podium-third' }
-    ];
-    podium.innerHTML = spots.map(s => {
-      const p = players[s.index];
-      if (!p) return `<div class="podium-spot podium-empty">
-        <div class="podium-name">—</div>
-        <div class="podium-score">0</div>
-        <div class="podium-bar"><span class="podium-rank">${s.index + 1}</span></div>
-      </div>`;
-      return `<div class="podium-spot ${s.cls}">
-        <div class="podium-name">${p.name}</div>
-        <div class="podium-score">${p.score}</div>
-        <div class="podium-bar"><span class="podium-rank">${s.index + 1}</span></div>
-      </div>`;
-    }).join('');
-  }
- 
-  function renderScoreBars(players) {
-    const container = document.getElementById('scoreBars');
-    const maxScore = Math.max(...players.map(p => p.score), 1);
-    container.innerHTML = players.map((p, i) => {
-      let fillClass = 'score-bar-fill-rest';
-      if (i === 0) fillClass = 'score-bar-fill-first';
-      else if (i === 1) fillClass = 'score-bar-fill-second';
-      else if (i === 2) fillClass = 'score-bar-fill-third';
-      const pct = Math.max((p.score / maxScore) * 100, 2);
-      return `<div class="score-bar-row">
-        <div class="score-bar-name">${p.name}</div>
-        <div class="score-bar-track">
-          <div class="score-bar-fill ${fillClass}" style="width:${pct}%">${p.score}</div>
-        </div>
-      </div>`;
-    }).join('');
-  }
- 
-  // Load leaderboard on page load from localStorage
-  (function loadLocalLeaderboard() {
-    const allPlayers = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key.startsWith('oscarPoolPicks_')) {
-        const playerName = key.replace('oscarPoolPicks_', '');
-        const playerPicks = JSON.parse(localStorage.getItem(key));
-        let score = 0;
-        categories.forEach(cat => {
-          if (winners[cat.id] && playerPicks[cat.id] === winners[cat.id]) {
-            score += cat.points;
-          }
-        });
-        allPlayers.push({ name: playerName, score });
+    html += '</div>';
+  });
+  container.innerHTML = html;
+  container.querySelectorAll('.leader-row').forEach(function(row) {
+    row.addEventListener('click', function() {
+      var playerName = row.dataset.player;
+      if (expandedPlayer === playerName) {
+        expandedPlayer = null;
+      } else {
+        expandedPlayer = playerName;
       }
-    }
-    if (allPlayers.length > 0) {
-      allPlayers.sort((a, b) => b.score - a.score);
-      renderLeaderboard(allPlayers);
-      renderPodium(allPlayers);
-      renderScoreBars(allPlayers);
-    }
-  })();
+      renderLeaderboard(leaderboard, info);
+    });
+  });
+}
+ 
+document.getElementById('adminLoginBtn').addEventListener('click', function() {
+  adminKey = document.getElementById('adminKey').value;
+  document.getElementById('adminLogin').style.display = 'none';
+  document.getElementById('adminPanel').style.display = 'block';
+  renderAdmin();
+});
+ 
+function renderAdmin() {
+  var panel = document.getElementById('adminPanel');
+  panel.innerHTML = categories.map(function(cat) {
+    var w = winners[cat.id];
+    return '<div class="admin-card">' +
+      '<h3>' + cat.name + (w ? ' &#10003;' : '') + '</h3>' +
+      '<div class="nominees">' +
+      cat.nominees.map(function(n) {
+        var cls = 'nominee-btn';
+        if (w === n) cls += ' winner-set';
+        return '<button class="' + cls + '" onclick="setWinner(\'' + cat.id + '\', \'' + n.replace(/'/g, "\\'") + '\')">' + n + '</button>';
+      }).join('') +
+      '</div>' +
+      (w ? '<div class="winner-label">Winner: ' + w + '</div>' : '') +
+      '</div>';
+  }).join('');
+}
+ 
+function setWinner(catId, nominee) {
+  socket.emit('setWinner', { categoryId: catId, nominee: nominee, adminKey: adminKey });
+}
+ 
+var lastLeaderboard = null;
+var lastInfo = null;
+ 
+socket.on('init', function(data) {
+  categories = data.categories;
+  winners = data.winners;
+  if (currentName && data.players[currentName]) {
+    currentPicks = data.players[currentName].picks;
+    isSubmitted = true;
+  }
+  lastInfo = {
+    playerCount: Object.keys(data.players).length,
+    categoriesAnnounced: Object.keys(data.winners).length,
+    totalCategories: categories.length
+  };
+  lastLeaderboard = data.leaderboard;
+  renderCategories();
+  renderLeaderboard(data.leaderboard, lastInfo);
+  renderAdmin();
+});
+ 
+socket.on('stateUpdate', function(data) {
+  winners = data.winners;
+  lastLeaderboard = data.leaderboard;
+  lastInfo = data;
+  renderLeaderboard(data.leaderboard, data);
+  renderCategories();
+  renderAdmin();
+});
+ 
+socket.on('adminError', function(msg) {
+  alert('Admin error: ' + msg);
+});
 </script>
- 
 </body>
 </html>
