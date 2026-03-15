@@ -1,0 +1,295 @@
+[
+  {
+    "id": "best-picture",
+    "name": "Best Picture",
+    "points": 10,
+    "nominees": [
+      "Bugonia",
+      "F1",
+      "Frankenstein",
+      "Hamnet",
+      "Marty Supreme",
+      "One Battle after Another",
+      "The Secret Agent",
+      "Sentimental Value",
+      "Sinners",
+      "Train Dreams"
+    ]
+  },
+  {
+    "id": "best-director",
+    "name": "Best Director",
+    "points": 10,
+    "nominees": [
+      "Chloe Zhao - Hamnet",
+      "Josh Safdie - Marty Supreme",
+      "Paul Thomas Anderson - One Battle after Another",
+      "Joachim Trier - Sentimental Value",
+      "Ryan Coogler - Sinners"
+    ]
+  },
+  {
+    "id": "best-actor",
+    "name": "Actor in a Leading Role",
+    "points": 5,
+    "nominees": [
+      "Timothee Chalamet - Marty Supreme",
+      "Leonardo DiCaprio - One Battle after Another",
+      "Ethan Hawke - Blue Moon",
+      "Michael B. Jordan - Sinners",
+      "Wagner Moura - The Secret Agent"
+    ]
+  },
+  {
+    "id": "best-actress",
+    "name": "Actress in a Leading Role",
+    "points": 5,
+    "nominees": [
+      "Jessie Buckley - Hamnet",
+      "Rose Byrne - If I Had Legs I'd Kick You",
+      "Kate Hudson - Song Sung Blue",
+      "Renate Reinsve - Sentimental Value",
+      "Emma Stone - Bugonia"
+    ]
+  },
+  {
+    "id": "best-supporting-actor",
+    "name": "Actor in a Supporting Role",
+    "points": 5,
+    "nominees": [
+      "Benicio Del Toro - One Battle after Another",
+      "Jacob Elordi - Frankenstein",
+      "Delroy Lindo - Sinners",
+      "Sean Penn - One Battle after Another",
+      "Stellan Skarsgard - Sentimental Value"
+    ]
+  },
+  {
+    "id": "best-supporting-actress",
+    "name": "Actress in a Supporting Role",
+    "points": 5,
+    "nominees": [
+      "Elle Fanning - Sentimental Value",
+      "Inga Ibsdotter Lilleaas - Sentimental Value",
+      "Amy Madigan - Weapons",
+      "Wunmi Mosaku - Sinners",
+      "Teyana Taylor - One Battle after Another"
+    ]
+  },
+  {
+    "id": "best-animated",
+    "name": "Animated Feature Film",
+    "points": 1,
+    "nominees": [
+      "Arco",
+      "Elio",
+      "KPop Demon Hunters",
+      "Little Amelie or the Character of Rain",
+      "Zootopia 2"
+    ]
+  },
+  {
+    "id": "best-animated-short",
+    "name": "Animated Short Film",
+    "points": 1,
+    "nominees": [
+      "Butterfly",
+      "Forevergreen",
+      "The Girl Who Cried Pearls",
+      "Retirement Plan",
+      "The Three Sisters"
+    ]
+  },
+  {
+    "id": "best-casting",
+    "name": "Casting",
+    "points": 1,
+    "nominees": [
+      "Nina Gold - Hamnet",
+      "Jennifer Venditti - Marty Supreme",
+      "Cassandra Kulukundis - One Battle after Another",
+      "Gabriel Domingues - The Secret Agent",
+      "Francine Maisler - Sinners"
+    ]
+  },
+  {
+    "id": "best-cinematography",
+    "name": "Cinematography",
+    "points": 1,
+    "nominees": [
+      "Dan Laustsen - Frankenstein",
+      "Darius Khondji - Marty Supreme",
+      "Michael Bauman - One Battle after Another",
+      "Autumn Durald Arkapaw - Sinners",
+      "Adolpho Veloso - Train Dreams"
+    ]
+  },
+  {
+    "id": "best-costume-design",
+    "name": "Costume Design",
+    "points": 1,
+    "nominees": [
+      "Deborah L. Scott - Avatar: Fire and Ash",
+      "Kate Hawley - Frankenstein",
+      "Malgosia Turzanska - Hamnet",
+      "Miyako Bellizzi - Marty Supreme",
+      "Ruth E. Carter - Sinners"
+    ]
+  },
+  {
+    "id": "best-documentary",
+    "name": "Documentary Feature Film",
+    "points": 1,
+    "nominees": [
+      "The Alabama Solution",
+      "Come See Me in the Good Light",
+      "Cutting through Rocks",
+      "Mr. Nobody against Putin",
+      "The Perfect Neighbor"
+    ]
+  },
+  {
+    "id": "best-documentary-short",
+    "name": "Documentary Short Film",
+    "points": 1,
+    "nominees": [
+      "All the Empty Rooms",
+      "Armed Only with a Camera",
+      "Children No More",
+      "The Devil Is Busy",
+      "Perfectly a Strangeness"
+    ]
+  },
+  {
+    "id": "best-editing",
+    "name": "Film Editing",
+    "points": 1,
+    "nominees": [
+      "Stephen Mirrione - F1",
+      "Ronald Bronstein and Josh Safdie - Marty Supreme",
+      "Andy Jurgensen - One Battle after Another",
+      "Olivier Bugge Coutte - Sentimental Value",
+      "Michael P. Shawver - Sinners"
+    ]
+  },
+  {
+    "id": "best-international",
+    "name": "International Feature Film",
+    "points": 1,
+    "nominees": [
+      "Brazil - The Secret Agent",
+      "France - It Was Just an Accident",
+      "Norway - Sentimental Value",
+      "Spain - Sirat",
+      "Tunisia - The Voice of Hind Rajab"
+    ]
+  },
+  {
+    "id": "best-live-action-short",
+    "name": "Live Action Short Film",
+    "points": 1,
+    "nominees": [
+      "Butchers Stain",
+      "A Friend of Dorothy",
+      "Jane Austens Period Drama",
+      "The Singers",
+      "Two People Exchanging Saliva"
+    ]
+  },
+  {
+    "id": "best-makeup",
+    "name": "Makeup and Hairstyling",
+    "points": 1,
+    "nominees": [
+      "Frankenstein",
+      "Kokuho",
+      "Sinners",
+      "The Smashing Machine",
+      "The Ugly Stepsister"
+    ]
+  },
+  {
+    "id": "best-score",
+    "name": "Music (Original Score)",
+    "points": 1,
+    "nominees": [
+      "Jerskin Fendrix - Bugonia",
+      "Alexandre Desplat - Frankenstein",
+      "Max Richter - Hamnet",
+      "Jonny Greenwood - One Battle after Another",
+      "Ludwig Goransson - Sinners"
+    ]
+  },
+  {
+    "id": "best-song",
+    "name": "Music (Original Song)",
+    "points": 1,
+    "nominees": [
+      "Dear Me - Diane Warren: Relentless",
+      "Golden - KPop Demon Hunters",
+      "I Lied To You - Sinners",
+      "Sweet Dreams Of Joy - Viva Verdi!",
+      "Train Dreams - Train Dreams"
+    ]
+  },
+  {
+    "id": "best-production-design",
+    "name": "Production Design",
+    "points": 1,
+    "nominees": [
+      "Frankenstein",
+      "Hamnet",
+      "Marty Supreme",
+      "One Battle after Another",
+      "Sinners"
+    ]
+  },
+  {
+    "id": "best-sound",
+    "name": "Sound",
+    "points": 1,
+    "nominees": [
+      "F1",
+      "Frankenstein",
+      "One Battle after Another",
+      "Sinners",
+      "Sirat"
+    ]
+  },
+  {
+    "id": "best-visual-effects",
+    "name": "Visual Effects",
+    "points": 1,
+    "nominees": [
+      "Avatar: Fire and Ash",
+      "F1",
+      "Jurassic World Rebirth",
+      "The Lost Bus",
+      "Sinners"
+    ]
+  },
+  {
+    "id": "best-adapted-screenplay",
+    "name": "Writing (Adapted Screenplay)",
+    "points": 1,
+    "nominees": [
+      "Will Tracy - Bugonia",
+      "Guillermo del Toro - Frankenstein",
+      "Chloe Zhao and Maggie OFarrell - Hamnet",
+      "Paul Thomas Anderson - One Battle after Another",
+      "Clint Bentley and Greg Kwedar - Train Dreams"
+    ]
+  },
+  {
+    "id": "best-original-screenplay",
+    "name": "Writing (Original Screenplay)",
+    "points": 1,
+    "nominees": [
+      "Robert Kaplow - Blue Moon",
+      "Jafar Panahi - It Was Just an Accident",
+      "Ronald Bronstein and Josh Safdie - Marty Supreme",
+      "Eskil Vogt and Joachim Trier - Sentimental Value",
+      "Ryan Coogler - Sinners"
+    ]
+  }
+]
