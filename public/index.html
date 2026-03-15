@@ -10,21 +10,21 @@
  
   body {
     font-family: 'Georgia', serif;
-    background: #0d0d0d;
+    background: #1a1a2e;
     color: #eee;
     min-height: 100vh;
   }
  
   header {
-    background: linear-gradient(135deg, #1a0a0a 0%, #2a0a0a 100%);
-    border-bottom: 3px solid #d4af37;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-bottom: 3px solid #c9a227;
     padding: 1.2rem;
     text-align: center;
   }
  
   header h1 {
     font-size: 2rem;
-    color: #d4af37;
+    color: #c9a227;
     letter-spacing: 2px;
   }
  
@@ -40,8 +40,8 @@
  
   nav button {
     background: transparent;
-    color: #d4af37;
-    border: 1px solid #d4af37;
+    color: #c9a227;
+    border: 1px solid #c9a227;
     padding: 0.5rem 1.2rem;
     font-size: 0.95rem;
     cursor: pointer;
@@ -51,8 +51,8 @@
   }
  
   nav button:hover, nav button.active {
-    background: #d4af37;
-    color: #0d0d0d;
+    background: #c9a227;
+    color: #1a1a2e;
   }
  
   .page { display: none; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
@@ -67,8 +67,8 @@
     font-size: 1.2rem;
     padding: 0.8rem 1rem;
     border-radius: 6px;
-    border: 2px solid #d4af37;
-    background: #1a1010;
+    border: 2px solid #c9a227;
+    background: #16213e;
     color: #eee;
     width: 100%;
     max-width: 320px;
@@ -80,30 +80,25 @@
     margin: 1rem auto 0;
     font-size: 1.1rem;
     padding: 0.8rem 2.5rem;
-    background: #c41e3a;
-    color: #fff;
+    background: #c9a227;
+    color: #1a1a2e;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
     font-family: inherit;
-    transition: all 0.2s;
-  }
- 
-  .join-box button:hover {
-    background: #a01830;
   }
  
   .category-card {
-    background: #1a1010;
-    border: 1px solid #3a1a1a;
+    background: #16213e;
+    border: 1px solid #333;
     border-radius: 8px;
     padding: 1.2rem;
     margin-bottom: 1rem;
   }
  
   .category-card h3 {
-    color: #d4af37;
+    color: #c9a227;
     margin-bottom: 0.6rem;
     font-size: 1.05rem;
   }
@@ -121,8 +116,8 @@
   }
  
   .nominee-btn {
-    background: #0d0d0d;
-    border: 1px solid #3a1a1a;
+    background: #1a1a2e;
+    border: 1px solid #444;
     color: #ddd;
     padding: 0.55rem 0.8rem;
     border-radius: 5px;
@@ -133,11 +128,11 @@
     font-family: inherit;
   }
  
-  .nominee-btn:hover { border-color: #c41e3a; color: #fff; }
+  .nominee-btn:hover { border-color: #c9a227; color: #fff; }
   .nominee-btn.selected {
-    background: #c41e3a;
-    color: #fff;
-    border-color: #c41e3a;
+    background: #c9a227;
+    color: #1a1a2e;
+    border-color: #c9a227;
     font-weight: bold;
   }
  
@@ -161,8 +156,8 @@
     width: 100%;
     padding: 1rem;
     font-size: 1.2rem;
-    background: #c41e3a;
-    color: #fff;
+    background: #c9a227;
+    color: #1a1a2e;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -192,9 +187,9 @@
   .leader-row {
     display: flex;
     align-items: center;
-    background: #1a1010;
-    border: 1px solid #3a1a1a;
-    border-radius: 8px 8px 8px 8px;
+    background: #16213e;
+    border: 1px solid #333;
+    border-radius: 8px;
     padding: 1rem 1.2rem;
     margin-bottom: 0.6rem;
     transition: all 0.3s;
@@ -204,4 +199,487 @@
  
   .leader-row.expanded {
     margin-bottom: 0;
-    border-radius: 8px 8px 0 0
+    border-radius: 8px 8px 0 0;
+  }
+ 
+  .leader-row.first { border-color: #c9a227; background: linear-gradient(135deg, #16213e, #2a2a1e); }
+  .leader-row.second { border-color: #aaa; }
+  .leader-row.third { border-color: #cd7f32; }
+ 
+  .leader-rank {
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 2.5rem;
+    text-align: center;
+    color: #c9a227;
+  }
+ 
+  .leader-name {
+    flex: 1;
+    font-size: 1.1rem;
+    margin-left: 0.8rem;
+  }
+ 
+  .leader-score {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #c9a227;
+  }
+ 
+  .leader-correct {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-left: 0.5rem;
+    min-width: 60px;
+    text-align: right;
+  }
+ 
+  .leader-expand-hint {
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 0.3rem;
+  }
+ 
+  .leader-details {
+    display: none;
+    background: #131b2e;
+    border: 1px solid #333;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+ 
+  .leader-details.visible {
+    display: block;
+  }
+ 
+  .leader-details-first { border-color: #c9a227; }
+  .leader-details-second { border-color: #aaa; }
+  .leader-details-third { border-color: #cd7f32; }
+ 
+  .pick-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #1e2a42;
+    font-size: 0.9rem;
+  }
+ 
+  .pick-row:last-child {
+    border-bottom: none;
+  }
+ 
+  .pick-category {
+    color: #aaa;
+    flex: 0 0 40%;
+  }
+ 
+  .pick-choice {
+    flex: 1;
+    text-align: right;
+    color: #ddd;
+  }
+ 
+  .pick-points {
+    flex: 0 0 50px;
+    text-align: right;
+    font-weight: bold;
+  }
+ 
+  .pick-correct .pick-choice {
+    color: #2ecc71;
+  }
+ 
+  .pick-correct .pick-points {
+    color: #2ecc71;
+  }
+ 
+  .pick-wrong .pick-choice {
+    color: #e74c3c;
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+ 
+  .pick-wrong .pick-points {
+    color: #e74c3c;
+  }
+ 
+  .pick-pending .pick-choice {
+    color: #888;
+  }
+ 
+  .pick-pending .pick-points {
+    color: #444;
+  }
+ 
+  .trophy { font-size: 1.5rem; }
+ 
+  .admin-login { text-align: center; margin: 2rem 0; }
+ 
+  .admin-login input {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 2px solid #c9a227;
+    background: #16213e;
+    color: #eee;
+    font-family: inherit;
+  }
+ 
+  .admin-login button {
+    padding: 0.6rem 1.5rem;
+    background: #c9a227;
+    color: #1a1a2e;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    font-family: inherit;
+  }
+ 
+  .admin-card {
+    background: #16213e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+ 
+  .admin-card h3 { color: #c9a227; margin-bottom: 0.5rem; }
+ 
+  .admin-card .nominee-btn.winner-set {
+    background: #2ecc71;
+    color: #fff;
+    border-color: #2ecc71;
+  }
+ 
+  .admin-card .winner-label {
+    color: #2ecc71;
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+  }
+ 
+  .flash {
+    animation: flash 0.5s ease;
+  }
+ 
+  @keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+ 
+  .no-players {
+    text-align: center;
+    color: #888;
+    padding: 3rem 1rem;
+    font-size: 1.1rem;
+  }
+</style>
+</head>
+<body>
+ 
+<header>
+  <h1>Oscar Pool 2026 <span>&#127942;</span></h1>
+  <nav>
+    <button class="active" data-page="join">Join</button>
+    <button data-page="picks">My Picks</button>
+    <button data-page="leaderboard">Leaderboard</button>
+    <button data-page="admin">Admin</button>
+  </nav>
+</header>
+ 
+<div id="page-join" class="page visible">
+  <div class="join-box">
+    <h2 style="color:#c9a227; margin-bottom:1.5rem;">Enter Your Name</h2>
+    <input type="text" id="playerName" placeholder="Your name" autocomplete="off" />
+    <button id="joinBtn">Join the Pool</button>
+    <p style="color:#666; margin-top:1rem; font-size:0.9rem;" id="joinStatus"></p>
+  </div>
+</div>
+ 
+<div id="page-picks" class="page">
+  <p class="pick-status" id="pickStatus">Select one nominee per category</p>
+  <div id="categoriesList"></div>
+  <button id="submitPicks" disabled>Submit My Picks</button>
+</div>
+ 
+<div id="page-leaderboard" class="page">
+  <h2 style="color:#c9a227; text-align:center; margin-bottom:0.5rem;">Leaderboard</h2>
+  <p class="leaderboard-stats" id="lbStats"></p>
+  <div id="leaderboardList"></div>
+</div>
+ 
+<div id="page-admin" class="page">
+  <h2 style="color:#c9a227; text-align:center; margin-bottom:1rem;">Admin - Set Winners</h2>
+  <div class="admin-login" id="adminLogin">
+    <input type="password" id="adminKey" placeholder="Admin key" />
+    <button id="adminLoginBtn">Unlock</button>
+  </div>
+  <div id="adminPanel" style="display:none;"></div>
+</div>
+ 
+<script>
+var socket = io();
+ 
+var categories = [];
+var currentPicks = {};
+var currentName = '';
+var winners = {};
+var adminKey = '';
+var isSubmitted = false;
+var expandedPlayer = null;
+ 
+document.querySelectorAll('nav button').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('nav button').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('visible'); });
+    document.getElementById('page-' + btn.dataset.page).classList.add('visible');
+  });
+});
+ 
+function showPage(name) {
+  document.querySelectorAll('nav button').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.page === name);
+  });
+  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('visible'); });
+  document.getElementById('page-' + name).classList.add('visible');
+}
+ 
+document.getElementById('joinBtn').addEventListener('click', joinPool);
+document.getElementById('playerName').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') joinPool();
+});
+ 
+function joinPool() {
+  var name = document.getElementById('playerName').value.trim();
+  if (!name) return;
+  currentName = name;
+  document.getElementById('joinStatus').textContent = 'Welcome, ' + name + '!';
+  renderCategories();
+  showPage('picks');
+}
+ 
+function renderCategories() {
+  var container = document.getElementById('categoriesList');
+  container.innerHTML = '';
+ 
+  categories.forEach(function(cat) {
+    var card = document.createElement('div');
+    card.className = 'category-card';
+ 
+    var winnerNominee = winners[cat.id];
+ 
+    card.innerHTML =
+      '<h3>' + cat.name + ' <span class="points-badge">(' + cat.points + ' pt' + (cat.points > 1 ? 's' : '') + ')</span></h3>' +
+      '<div class="nominees">' +
+      cat.nominees.map(function(n) {
+        var cls = 'nominee-btn';
+        if (currentPicks[cat.id] === n) cls += ' selected';
+        if (winnerNominee) {
+          if (n === winnerNominee) cls += ' is-winner';
+          if (currentPicks[cat.id] === n && n === winnerNominee) cls += ' correct';
+          else if (currentPicks[cat.id] === n && n !== winnerNominee) cls += ' wrong';
+        }
+        var disabled = isSubmitted ? 'disabled' : '';
+        return '<button class="' + cls + '" data-cat="' + cat.id + '" data-nominee="' + n + '" ' + disabled + '>' + n + (winnerNominee === n ? ' WINNER' : '') + '</button>';
+      }).join('') +
+      '</div>';
+    container.appendChild(card);
+  });
+ 
+  if (!isSubmitted) {
+    container.querySelectorAll('.nominee-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var catId = btn.dataset.cat;
+        currentPicks[catId] = btn.dataset.nominee;
+        renderCategories();
+        updatePickStatus();
+      });
+    });
+  }
+ 
+  updatePickStatus();
+}
+ 
+function updatePickStatus() {
+  var picked = Object.keys(currentPicks).length;
+  var total = categories.length;
+  var status = document.getElementById('pickStatus');
+  var btn = document.getElementById('submitPicks');
+ 
+  if (isSubmitted) {
+    status.textContent = 'Your picks are locked in, ' + currentName + '!';
+    btn.style.display = 'none';
+  } else {
+    status.textContent = picked + ' of ' + total + ' categories picked';
+    btn.disabled = picked < total;
+    btn.textContent = picked < total ? 'Pick all ' + total + ' categories to submit' : 'Submit My Picks';
+  }
+}
+ 
+document.getElementById('submitPicks').addEventListener('click', function() {
+  if (!currentName) { showPage('join'); return; }
+  socket.emit('submitPicks', { name: currentName, picks: currentPicks });
+  isSubmitted = true;
+  renderCategories();
+  showPage('leaderboard');
+});
+ 
+function getCategoryById(id) {
+  for (var i = 0; i < categories.length; i++) {
+    if (categories[i].id === id) return categories[i];
+  }
+  return null;
+}
+ 
+function renderLeaderboard(leaderboard, info) {
+  var container = document.getElementById('leaderboardList');
+  var stats = document.getElementById('lbStats');
+ 
+  if (info) {
+    stats.textContent = info.playerCount + ' player' + (info.playerCount !== 1 ? 's' : '') + ' | ' + info.categoriesAnnounced + ' of ' + info.totalCategories + ' winners announced';
+  }
+ 
+  if (!leaderboard || leaderboard.length === 0) {
+    container.innerHTML = '<div class="no-players">No players yet - share the link with friends!</div>';
+    return;
+  }
+ 
+  var html = '';
+ 
+  leaderboard.forEach(function(p, i) {
+    var rankClass = i === 0 ? 'first' : i === 1 ? 'second' : i === 2 ? 'third' : '';
+    var detailsClass = i === 0 ? 'leader-details-first' : i === 1 ? 'leader-details-second' : i === 2 ? 'leader-details-third' : '';
+    var trophy = i === 0 ? '<span class="trophy">&#127942;</span>' : i === 1 ? '<span class="trophy">&#129352;</span>' : i === 2 ? '<span class="trophy">&#129353;</span>' : '';
+    var isMe = p.name === currentName ? ' (you)' : '';
+    var isExpanded = expandedPlayer === p.name;
+ 
+    html += '<div class="leader-row ' + rankClass + (isExpanded ? ' expanded' : '') + '" data-player="' + p.name + '">' +
+      '<div class="leader-rank">' + (trophy || (i + 1)) + '</div>' +
+      '<div class="leader-name">' + p.name + isMe + '</div>' +
+      '<div class="leader-score">' + p.score + '</div>' +
+      '<div class="leader-correct">' + p.correct + '/' + p.total + ' right</div>' +
+      '<div class="leader-expand-hint">' + (isExpanded ? 'tap to collapse' : 'tap to see picks') + '</div>' +
+      '</div>';
+ 
+    html += '<div class="leader-details ' + detailsClass + (isExpanded ? ' visible' : '') + '">';
+ 
+    categories.forEach(function(cat) {
+      var pick = p.picks[cat.id];
+      var winner = winners[cat.id];
+      var rowClass = 'pick-row';
+      var pointsText = '';
+ 
+      if (!pick) {
+        rowClass += ' pick-pending';
+        pointsText = '-';
+      } else if (!winner) {
+        rowClass += ' pick-pending';
+        pointsText = '?';
+      } else if (pick === winner) {
+        rowClass += ' pick-correct';
+        pointsText = '+' + cat.points;
+      } else {
+        rowClass += ' pick-wrong';
+        pointsText = '0';
+      }
+ 
+      html += '<div class="' + rowClass + '">' +
+        '<div class="pick-category">' + cat.name + '</div>' +
+        '<div class="pick-choice">' + (pick || 'no pick') + '</div>' +
+        '<div class="pick-points">' + pointsText + '</div>' +
+        '</div>';
+    });
+ 
+    html += '</div>';
+  });
+ 
+  container.innerHTML = html;
+ 
+  container.querySelectorAll('.leader-row').forEach(function(row) {
+    row.addEventListener('click', function() {
+      var playerName = row.dataset.player;
+      if (expandedPlayer === playerName) {
+        expandedPlayer = null;
+      } else {
+        expandedPlayer = playerName;
+      }
+      renderLeaderboard(leaderboard, info);
+    });
+  });
+}
+ 
+document.getElementById('adminLoginBtn').addEventListener('click', function() {
+  adminKey = document.getElementById('adminKey').value;
+  document.getElementById('adminLogin').style.display = 'none';
+  document.getElementById('adminPanel').style.display = 'block';
+  renderAdmin();
+});
+ 
+function renderAdmin() {
+  var panel = document.getElementById('adminPanel');
+  panel.innerHTML = categories.map(function(cat) {
+    var w = winners[cat.id];
+    return '<div class="admin-card">' +
+      '<h3>' + cat.name + (w ? ' &#10003;' : '') + '</h3>' +
+      '<div class="nominees">' +
+      cat.nominees.map(function(n) {
+        var cls = 'nominee-btn';
+        if (w === n) cls += ' winner-set';
+        return '<button class="' + cls + '" onclick="setWinner(\'' + cat.id + '\', \'' + n.replace(/'/g, "\\'") + '\')">' + n + '</button>';
+      }).join('') +
+      '</div>' +
+      (w ? '<div class="winner-label">Winner: ' + w + '</div>' : '') +
+      '</div>';
+  }).join('');
+}
+ 
+function setWinner(catId, nominee) {
+  socket.emit('setWinner', { categoryId: catId, nominee: nominee, adminKey: adminKey });
+}
+ 
+var lastLeaderboard = null;
+var lastInfo = null;
+ 
+socket.on('init', function(data) {
+  categories = data.categories;
+  winners = data.winners;
+ 
+  if (currentName && data.players[currentName]) {
+    currentPicks = data.players[currentName].picks;
+    isSubmitted = true;
+  }
+ 
+  lastInfo = {
+    playerCount: Object.keys(data.players).length,
+    categoriesAnnounced: Object.keys(data.winners).length,
+    totalCategories: categories.length
+  };
+  lastLeaderboard = data.leaderboard;
+ 
+  renderCategories();
+  renderLeaderboard(data.leaderboard, lastInfo);
+  renderAdmin();
+});
+ 
+socket.on('stateUpdate', function(data) {
+  winners = data.winners;
+  lastLeaderboard = data.leaderboard;
+  lastInfo = data;
+  renderLeaderboard(data.leaderboard, data);
+  renderCategories();
+  renderAdmin();
+});
+ 
+socket.on('adminError', function(msg) {
+  alert('Admin error: ' + msg);
+});
+</script>
+</body>
+</html>
